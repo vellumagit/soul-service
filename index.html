@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Soul Service / Ops</title>
+<title>Soul Service / Client Files</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,24 +18,10 @@
         },
         colors: {
           ink: {
-            50:  '#fafaf9',
-            100: '#f5f5f4',
-            200: '#e7e5e4',
-            300: '#d6d3d1',
-            400: '#a8a29e',
-            500: '#78716c',
-            600: '#57534e',
-            700: '#44403c',
-            800: '#292524',
-            900: '#1c1917',
+            50:'#fafaf9',100:'#f5f5f4',200:'#e7e5e4',300:'#d6d3d1',
+            400:'#a8a29e',500:'#78716c',600:'#57534e',700:'#44403c',800:'#292524',900:'#1c1917',
           },
-          flame: {
-            50:  '#fef6ee',
-            100: '#fdead7',
-            500: '#ea580c',
-            600: '#c2410c',
-            700: '#9a3412',
-          },
+          flame: {50:'#fef6ee',100:'#fdead7',500:'#ea580c',600:'#c2410c',700:'#9a3412'},
         },
       },
     },
@@ -44,31 +30,29 @@
 <style>
   body { font-family: 'Inter', sans-serif; font-feature-settings: 'cv02','cv03','cv04','cv11'; }
   .mono { font-family: 'JetBrains Mono', monospace; }
-  .tab-panel { display: none; }
-  .tab-panel.active { display: block; }
-  .nav-item[aria-current="true"] {
-    background: #fafaf9;
-    color: #1c1917;
-    box-shadow: inset 2px 0 0 #c2410c;
-  }
-  .kbd {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    padding: 1px 5px;
-    border-radius: 3px;
-    background: #f5f5f4;
-    color: #78716c;
-    border: 1px solid #e7e5e4;
-    border-bottom-width: 2px;
-  }
-  .row-hover:hover { background: #fafaf9; }
-  .chip { display:inline-flex; align-items:center; gap:4px; padding: 1px 7px; border-radius:4px; font-size:11px; font-weight:500; font-family: 'JetBrains Mono', monospace; }
+  .tab-panel { display: none; } .tab-panel.active { display: block; }
+  .subtab-panel { display: none; } .subtab-panel.active { display: block; }
+  .nav-item[aria-current="true"] { background: #fafaf9; color: #1c1917; box-shadow: inset 2px 0 0 #c2410c; }
+  .subtab[aria-current="true"] { color: #1c1917; border-color: #1c1917; }
+  .kbd { font-family:'JetBrains Mono',monospace; font-size:10px; padding:1px 5px; border-radius:3px; background:#f5f5f4; color:#78716c; border:1px solid #e7e5e4; border-bottom-width:2px; }
+  .row-hover:hover { background: #fafaf9; cursor: pointer; }
+  .chip { display:inline-flex; align-items:center; gap:4px; padding:1px 7px; border-radius:4px; font-size:11px; font-weight:500; font-family:'JetBrains Mono',monospace; }
   .dot { width:6px; height:6px; border-radius:999px; display:inline-block; }
-  table td, table th { border-color: #f5f5f4; }
-  ::selection { background: #fdead7; color: #9a3412; }
-  .scroll::-webkit-scrollbar { width: 8px; height: 8px; }
-  .scroll::-webkit-scrollbar-thumb { background: #e7e5e4; border-radius: 4px; }
-  .scroll::-webkit-scrollbar-thumb:hover { background: #d6d3d1; }
+  table td, table th { border-color:#f5f5f4; }
+  ::selection { background:#fdead7; color:#9a3412; }
+  .scroll::-webkit-scrollbar { width:8px; height:8px; }
+  .scroll::-webkit-scrollbar-thumb { background:#e7e5e4; border-radius:4px; }
+  .scroll::-webkit-scrollbar-thumb:hover { background:#d6d3d1; }
+  .timeline-item { position: relative; }
+  .timeline-item::before { content:''; position:absolute; left:11px; top:24px; bottom:-16px; width:1px; background:#e7e5e4; }
+  .timeline-item:last-child::before { display:none; }
+  details[open] > summary .caret { transform: rotate(90deg); }
+  summary { list-style: none; } summary::-webkit-details-marker { display:none; }
+  .bar { height:6px; background:#f5f5f4; border-radius:999px; overflow:hidden; }
+  .bar > span { display:block; height:100%; background:#c2410c; border-radius:999px; }
+  .wellness-cell { padding: 4px 0; }
+  .folder-tab { position:relative; }
+  .folder-tab::after { content:''; position:absolute; right:-1px; top:50%; transform:translateY(-50%); width:4px; height:40%; background:#c2410c; border-radius:0 2px 2px 0; }
 </style>
 </head>
 <body class="bg-white text-ink-800 antialiased">
@@ -79,56 +63,48 @@
   <aside class="w-56 border-r border-ink-100 flex flex-col bg-white">
     <div class="px-4 py-4 border-b border-ink-100 flex items-center justify-between">
       <div class="flex items-center gap-2">
-        <div class="w-5 h-5 rounded-sm bg-ink-900 flex items-center justify-center">
-          <div class="w-2 h-2 rounded-full bg-flame-500"></div>
-        </div>
+        <div class="w-5 h-5 rounded-sm bg-ink-900 flex items-center justify-center"><div class="w-2 h-2 rounded-full bg-flame-500"></div></div>
         <div class="text-sm font-semibold text-ink-900 tracking-tight">soul&nbsp;service</div>
       </div>
-      <button class="text-ink-400 hover:text-ink-700 p-0.5">
-        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 9l4-4 4 4m0 6l-4 4-4-4"/></svg>
-      </button>
     </div>
 
     <nav class="flex-1 py-2 text-sm">
       <div class="px-4 pt-3 pb-1 text-[10px] font-medium uppercase tracking-wider text-ink-400">Workspace</div>
-      <button data-tab="inbox"    aria-current="true"  class="nav-item w-full flex items-center gap-2.5 pl-4 pr-3 py-1.5 text-ink-600 hover:bg-ink-50">
+      <button data-tab="inbox"    class="nav-item w-full flex items-center gap-2.5 pl-4 pr-3 py-1.5 text-ink-600 hover:bg-ink-50">
         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7l9 6 9-6M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-        <span class="flex-1 text-left">Inbox</span>
-        <span class="mono text-[10px] text-ink-400">3</span>
+        <span class="flex-1 text-left">Inbox</span><span class="mono text-[10px] text-ink-400">3</span>
       </button>
-      <button data-tab="sessions" class="nav-item w-full flex items-center gap-2.5 pl-4 pr-3 py-1.5 text-ink-600 hover:bg-ink-50">
-        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-        <span class="flex-1 text-left">Sessions</span>
-        <span class="kbd">G S</span>
-      </button>
-      <button data-tab="clients" class="nav-item w-full flex items-center gap-2.5 pl-4 pr-3 py-1.5 text-ink-600 hover:bg-ink-50">
-        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
-        <span class="flex-1 text-left">Clients</span>
-        <span class="kbd">G C</span>
-      </button>
-      <button data-tab="filing" class="nav-item w-full flex items-center gap-2.5 pl-4 pr-3 py-1.5 text-ink-600 hover:bg-ink-50">
+      <button data-tab="clients" aria-current="true" class="nav-item w-full flex items-center gap-2.5 pl-4 pr-3 py-1.5 text-ink-600 hover:bg-ink-50">
         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V7z"/></svg>
-        <span class="flex-1 text-left">Filing</span>
-        <span class="kbd">G F</span>
+        <span class="flex-1 text-left">Client files</span><span class="kbd">G C</span>
+      </button>
+      <button data-tab="calendar" class="nav-item w-full flex items-center gap-2.5 pl-4 pr-3 py-1.5 text-ink-600 hover:bg-ink-50">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        <span class="flex-1 text-left">Calendar</span><span class="kbd">G S</span>
       </button>
       <button data-tab="billing" class="nav-item w-full flex items-center gap-2.5 pl-4 pr-3 py-1.5 text-ink-600 hover:bg-ink-50">
         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-        <span class="flex-1 text-left">Billing</span>
-        <span class="kbd">G B</span>
+        <span class="flex-1 text-left">Billing</span><span class="kbd">G B</span>
       </button>
 
-      <div class="px-4 pt-5 pb-1 text-[10px] font-medium uppercase tracking-wider text-ink-400">Views</div>
-      <button class="w-full flex items-center gap-2.5 pl-4 pr-3 py-1.5 text-ink-600 hover:bg-ink-50">
-        <span class="dot bg-flame-500"></span> Today
+      <div class="px-4 pt-5 pb-1 text-[10px] font-medium uppercase tracking-wider text-ink-400">Filters</div>
+      <button class="w-full flex items-center gap-2.5 pl-4 pr-3 py-1.5 text-ink-600 hover:bg-ink-50"><span class="dot bg-flame-500"></span> Active clients</button>
+      <button class="w-full flex items-center gap-2.5 pl-4 pr-3 py-1.5 text-ink-600 hover:bg-ink-50"><span class="dot bg-amber-500"></span> Missing intake</button>
+      <button class="w-full flex items-center gap-2.5 pl-4 pr-3 py-1.5 text-ink-600 hover:bg-ink-50"><span class="dot bg-red-500"></span> Overdue balance</button>
+      <button class="w-full flex items-center gap-2.5 pl-4 pr-3 py-1.5 text-ink-600 hover:bg-ink-50"><span class="dot bg-ink-300"></span> Dormant 30d+</button>
+
+      <div class="px-4 pt-5 pb-1 text-[10px] font-medium uppercase tracking-wider text-ink-400">Pinned files</div>
+      <button data-open="elena" class="pinned w-full flex items-center gap-2 pl-4 pr-3 py-1.5 text-ink-600 hover:bg-ink-50 text-left">
+        <div class="w-5 h-5 rounded-sm bg-flame-100 text-flame-700 flex items-center justify-center text-[10px] font-semibold">EL</div>
+        <span class="truncate">Elena Larsson</span>
       </button>
-      <button class="w-full flex items-center gap-2.5 pl-4 pr-3 py-1.5 text-ink-600 hover:bg-ink-50">
-        <span class="dot bg-ink-400"></span> This week
+      <button data-open="marcus" class="pinned w-full flex items-center gap-2 pl-4 pr-3 py-1.5 text-ink-600 hover:bg-ink-50 text-left">
+        <div class="w-5 h-5 rounded-sm bg-ink-100 text-ink-700 flex items-center justify-center text-[10px] font-semibold">MD</div>
+        <span class="truncate">Marcus Devoe</span>
       </button>
-      <button class="w-full flex items-center gap-2.5 pl-4 pr-3 py-1.5 text-ink-600 hover:bg-ink-50">
-        <span class="dot bg-ink-300"></span> Unpaid
-      </button>
-      <button class="w-full flex items-center gap-2.5 pl-4 pr-3 py-1.5 text-ink-600 hover:bg-ink-50">
-        <span class="dot bg-ink-300"></span> Missing intake
+      <button data-open="noa" class="pinned w-full flex items-center gap-2 pl-4 pr-3 py-1.5 text-ink-600 hover:bg-ink-50 text-left">
+        <div class="w-5 h-5 rounded-sm bg-green-100 text-green-700 flex items-center justify-center text-[10px] font-semibold">NB</div>
+        <span class="truncate">Noa Bennett</span>
       </button>
     </nav>
 
@@ -149,30 +125,19 @@
     <!-- Top bar -->
     <header class="border-b border-ink-100 px-6 h-11 flex items-center gap-3 text-sm">
       <div id="breadcrumb" class="flex items-center gap-2 text-ink-500">
-        <span class="text-ink-700 font-medium">Inbox</span>
-        <span class="text-ink-300">/</span>
-        <span>Today</span>
+        <span class="text-ink-700 font-medium">Client files</span><span class="text-ink-300">/</span><span>Directory</span>
       </div>
       <div class="flex-1"></div>
       <div class="flex items-center gap-1.5 text-ink-500 text-xs">
-        <span class="dot bg-green-500"></span>
-        <span>Google Calendar synced</span>
-        <span class="text-ink-300">·</span>
-        <span class="mono">2s ago</span>
+        <span class="dot bg-green-500"></span><span>Synced</span><span class="text-ink-300">·</span><span class="mono">2s ago</span>
       </div>
-      <button class="text-ink-500 hover:text-ink-800 flex items-center gap-1.5 text-xs px-2 py-1 rounded hover:bg-ink-50">
-        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"/></svg>
-        Filter
-      </button>
       <button onclick="openCmd()" class="flex items-center gap-2 text-xs text-ink-500 px-2 py-1 rounded border border-ink-200 hover:bg-ink-50">
         <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-        <span>Search or command</span>
-        <span class="kbd">⌘K</span>
+        <span>Search files</span><span class="kbd">⌘K</span>
       </button>
       <button onclick="openModal('new')" class="bg-ink-900 hover:bg-ink-800 text-white text-xs font-medium px-3 py-1.5 rounded flex items-center gap-1.5">
         <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
-        New
-        <span class="kbd bg-ink-800 text-ink-300 border-ink-700">C</span>
+        New <span class="kbd bg-ink-800 text-ink-300 border-ink-700">C</span>
       </button>
     </header>
 
@@ -180,153 +145,42 @@
       <div class="px-6 py-5">
 
         <!-- INBOX -->
-        <section id="tab-inbox" class="tab-panel active">
-          <div class="mb-5">
-            <h1 class="text-xl font-semibold text-ink-900 tracking-tight">Inbox</h1>
-            <p class="text-xs text-ink-500 mt-0.5">Things that need your attention before your next session at <span class="mono text-ink-700">2:00 PM</span>.</p>
-          </div>
-
-          <!-- Next up -->
+        <section id="tab-inbox" class="tab-panel">
+          <h1 class="text-xl font-semibold text-ink-900 tracking-tight mb-5">Inbox</h1>
           <div class="border border-ink-200 rounded-md bg-ink-50/40 mb-5">
             <div class="flex items-center gap-3 px-4 py-3">
               <span class="chip bg-flame-100 text-flame-700">NEXT</span>
               <div class="flex-1 min-w-0">
                 <div class="flex items-center gap-2 text-sm">
-                  <span class="font-medium text-ink-900">Elena Larsson</span>
-                  <span class="text-ink-400">·</span>
-                  <span class="text-ink-600">Reiki / 60m</span>
-                  <span class="text-ink-400">·</span>
-                  <span class="mono text-ink-600">2:00 PM</span>
+                  <button data-open="elena" class="font-medium text-ink-900 hover:underline">Elena Larsson</button>
+                  <span class="text-ink-400">·</span><span class="text-ink-600">Reiki / 60m</span>
+                  <span class="text-ink-400">·</span><span class="mono text-ink-600">2:00 PM</span>
                 </div>
-                <div class="text-xs text-ink-500 mt-0.5">4th session · intake on file · last note references shoulder tension.</div>
+                <div class="text-xs text-ink-500 mt-0.5">4th session · intake on file · last note references shoulder tension</div>
               </div>
-              <a href="#" class="mono text-xs text-ink-500 hover:text-ink-800 underline decoration-ink-300 hover:decoration-ink-800">meet.google.com/xyh-abcd-qrs ↗</a>
               <a href="#" class="bg-ink-900 hover:bg-ink-800 text-white text-xs font-medium px-3 py-1.5 rounded inline-flex items-center gap-1.5">
                 <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M21 6.5l-4 2.5v6l4 2.5v-11zM3 7a2 2 0 012-2h9a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7z"/></svg>
                 Join
               </a>
             </div>
           </div>
-
-          <!-- Action items -->
           <div class="mb-2 text-[11px] font-medium uppercase tracking-wider text-ink-400">Action items · 5</div>
-          <div class="border border-ink-200 rounded-md divide-y divide-ink-100 overflow-hidden">
-
-            <div class="row-hover flex items-center gap-3 px-4 py-2.5 text-sm">
-              <span class="chip bg-amber-50 text-amber-700"><span class="dot bg-amber-500"></span>INTAKE</span>
-              <span class="flex-1 text-ink-700">Aanya Kapoor hasn't submitted intake form — session in <span class="mono text-ink-900">4h 28m</span></span>
-              <span class="mono text-xs text-ink-400">2025-04-19</span>
-              <button class="text-xs text-flame-700 hover:text-flame-600 font-medium">Send reminder</button>
-            </div>
-            <div class="row-hover flex items-center gap-3 px-4 py-2.5 text-sm">
-              <span class="chip bg-red-50 text-red-700"><span class="dot bg-red-500"></span>OVERDUE</span>
-              <span class="flex-1 text-ink-700">Invoice <span class="mono text-ink-900">INV-1042</span> to Marcus Devoe is 5 days overdue</span>
-              <span class="mono text-xs text-ink-400">$210.00</span>
-              <button class="text-xs text-flame-700 hover:text-flame-600 font-medium">Send reminder</button>
-            </div>
-            <div class="row-hover flex items-center gap-3 px-4 py-2.5 text-sm">
-              <span class="chip bg-ink-100 text-ink-600"><span class="dot bg-ink-400"></span>NOTES</span>
-              <span class="flex-1 text-ink-700">Session notes pending for <span class="text-ink-900 font-medium">Noa Bennett</span> — Apr 16, 60m</span>
-              <span class="mono text-xs text-ink-400">3d ago</span>
-              <button class="text-xs text-flame-700 hover:text-flame-600 font-medium">Write notes</button>
-            </div>
-            <div class="row-hover flex items-center gap-3 px-4 py-2.5 text-sm">
-              <span class="chip bg-ink-100 text-ink-600"><span class="dot bg-ink-400"></span>CONSENT</span>
-              <span class="flex-1 text-ink-700">Priya Shah consent form expires in 7 days</span>
-              <span class="mono text-xs text-ink-400">exp 2025-04-26</span>
-              <button class="text-xs text-flame-700 hover:text-flame-600 font-medium">Renew</button>
-            </div>
-            <div class="row-hover flex items-center gap-3 px-4 py-2.5 text-sm">
-              <span class="chip bg-ink-100 text-ink-600"><span class="dot bg-ink-400"></span>FOLLOWUP</span>
-              <span class="flex-1 text-ink-700">Jamie Rhodes hasn't booked since Apr 8 (usual cadence: 10 days)</span>
-              <span class="mono text-xs text-ink-400">11d</span>
-              <button class="text-xs text-flame-700 hover:text-flame-600 font-medium">Reach out</button>
-            </div>
-          </div>
-
-          <!-- Today schedule -->
-          <div class="mt-6 mb-2 text-[11px] font-medium uppercase tracking-wider text-ink-400">Today · 3 sessions</div>
-          <div class="border border-ink-200 rounded-md overflow-hidden">
-            <table class="w-full text-sm">
-              <tbody class="divide-y divide-ink-100" id="today-body"></tbody>
-            </table>
-          </div>
-
-          <!-- Signal strip -->
-          <div class="mt-6 grid grid-cols-4 gap-0 border border-ink-200 rounded-md overflow-hidden">
-            <div class="px-4 py-3 border-r border-ink-100">
-              <div class="text-[10px] uppercase tracking-wider text-ink-400">Sessions / wk</div>
-              <div class="mt-1 flex items-baseline gap-2"><span class="text-xl font-semibold text-ink-900">18</span><span class="mono text-[11px] text-green-600">+12%</span></div>
-            </div>
-            <div class="px-4 py-3 border-r border-ink-100">
-              <div class="text-[10px] uppercase tracking-wider text-ink-400">Revenue MTD</div>
-              <div class="mt-1 flex items-baseline gap-2"><span class="text-xl font-semibold text-ink-900 mono">$6,420</span><span class="mono text-[11px] text-green-600">+8%</span></div>
-            </div>
-            <div class="px-4 py-3 border-r border-ink-100">
-              <div class="text-[10px] uppercase tracking-wider text-ink-400">Unpaid</div>
-              <div class="mt-1 flex items-baseline gap-2"><span class="text-xl font-semibold text-ink-900 mono">$840</span><span class="mono text-[11px] text-amber-600">4 open</span></div>
-            </div>
-            <div class="px-4 py-3">
-              <div class="text-[10px] uppercase tracking-wider text-ink-400">Active clients</div>
-              <div class="mt-1 flex items-baseline gap-2"><span class="text-xl font-semibold text-ink-900">47</span><span class="mono text-[11px] text-green-600">+3 new</span></div>
-            </div>
-          </div>
+          <div class="border border-ink-200 rounded-md divide-y divide-ink-100 overflow-hidden" id="action-items"></div>
         </section>
 
-        <!-- SESSIONS -->
-        <section id="tab-sessions" class="tab-panel">
+        <!-- CLIENTS (directory) -->
+        <section id="tab-clients" class="tab-panel active">
           <div class="flex items-end justify-between mb-5">
             <div>
-              <h1 class="text-xl font-semibold text-ink-900 tracking-tight">Sessions</h1>
-              <p class="text-xs text-ink-500 mt-0.5">All sessions across upcoming, completed, cancelled.</p>
-            </div>
-            <div class="flex items-center gap-2 text-xs">
-              <button class="px-2 py-1 rounded border border-ink-200 text-ink-700 hover:bg-ink-50">Group by: <span class="text-ink-900 font-medium">Day</span></button>
-              <button class="px-2 py-1 rounded border border-ink-200 text-ink-700 hover:bg-ink-50">Status: <span class="text-ink-900 font-medium">All</span></button>
-              <button class="px-2 py-1 rounded border border-ink-200 text-ink-700 hover:bg-ink-50">Modality: <span class="text-ink-900 font-medium">All</span></button>
-            </div>
-          </div>
-
-          <div class="border border-ink-200 rounded-md overflow-hidden">
-            <table class="w-full text-sm">
-              <thead class="text-[10px] uppercase tracking-wider text-ink-500 bg-ink-50/60 border-b border-ink-100">
-                <tr>
-                  <th class="text-left font-medium px-4 py-2 w-8"><input type="checkbox" class="accent-flame-600"/></th>
-                  <th class="text-left font-medium px-4 py-2">When</th>
-                  <th class="text-left font-medium px-4 py-2">Client</th>
-                  <th class="text-left font-medium px-4 py-2">Modality</th>
-                  <th class="text-left font-medium px-4 py-2">Dur</th>
-                  <th class="text-left font-medium px-4 py-2">Status</th>
-                  <th class="text-left font-medium px-4 py-2">Meet link</th>
-                  <th class="text-left font-medium px-4 py-2">Notes</th>
-                  <th class="text-left font-medium px-4 py-2">Paid</th>
-                </tr>
-              </thead>
-              <tbody id="sessions-body" class="divide-y divide-ink-100"></tbody>
-            </table>
-          </div>
-          <div class="flex items-center justify-between mt-3 text-xs text-ink-500">
-            <div><span class="mono">9</span> of <span class="mono">186</span> sessions</div>
-            <div class="flex items-center gap-1">
-              <button class="px-2 py-1 rounded border border-ink-200 hover:bg-ink-50">←</button>
-              <button class="px-2 py-1 rounded border border-ink-200 hover:bg-ink-50">→</button>
-            </div>
-          </div>
-        </section>
-
-        <!-- CLIENTS -->
-        <section id="tab-clients" class="tab-panel">
-          <div class="flex items-end justify-between mb-5">
-            <div>
-              <h1 class="text-xl font-semibold text-ink-900 tracking-tight">Clients</h1>
-              <p class="text-xs text-ink-500 mt-0.5">Directory with intake status, session history, lifetime value.</p>
+              <h1 class="text-xl font-semibold text-ink-900 tracking-tight">Client files</h1>
+              <p class="text-xs text-ink-500 mt-0.5">Open a file to see everything on that person — sessions, notes, documents, wellness tracking, billing.</p>
             </div>
             <div class="flex items-center gap-2">
               <div class="relative">
                 <svg class="w-3.5 h-3.5 absolute left-2 top-1.5 text-ink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-                <input id="client-search" type="text" placeholder="Filter…" class="pl-7 pr-2 py-1 border border-ink-200 rounded text-xs w-48 outline-none focus:border-ink-400" />
+                <input id="client-search" type="text" placeholder="Filter files…" class="pl-7 pr-2 py-1 border border-ink-200 rounded text-xs w-56 outline-none focus:border-ink-400"/>
               </div>
-              <button class="bg-ink-900 text-white text-xs font-medium px-3 py-1.5 rounded">+ Client</button>
+              <button onclick="openModal('new-client')" class="bg-ink-900 text-white text-xs font-medium px-3 py-1.5 rounded">+ New file</button>
             </div>
           </div>
 
@@ -335,14 +189,14 @@
               <thead class="text-[10px] uppercase tracking-wider text-ink-500 bg-ink-50/60 border-b border-ink-100">
                 <tr>
                   <th class="text-left font-medium px-4 py-2">Client</th>
-                  <th class="text-left font-medium px-4 py-2">Email</th>
-                  <th class="text-left font-medium px-4 py-2">Phone</th>
+                  <th class="text-left font-medium px-4 py-2">Working on</th>
                   <th class="text-left font-medium px-4 py-2">Sessions</th>
                   <th class="text-left font-medium px-4 py-2">Last</th>
+                  <th class="text-left font-medium px-4 py-2">Next</th>
                   <th class="text-left font-medium px-4 py-2">Cadence</th>
                   <th class="text-left font-medium px-4 py-2">LTV</th>
-                  <th class="text-left font-medium px-4 py-2">Intake</th>
-                  <th class="text-left font-medium px-4 py-2">Consent</th>
+                  <th class="text-left font-medium px-4 py-2">Docs</th>
+                  <th class="text-left font-medium px-4 py-2">Flags</th>
                 </tr>
               </thead>
               <tbody id="clients-body" class="divide-y divide-ink-100"></tbody>
@@ -350,115 +204,226 @@
           </div>
         </section>
 
-        <!-- FILING -->
-        <section id="tab-filing" class="tab-panel">
-          <div class="flex items-end justify-between mb-5">
-            <div>
-              <h1 class="text-xl font-semibold text-ink-900 tracking-tight">Filing</h1>
-              <p class="text-xs text-ink-500 mt-0.5">Every document attached to a session or client, searchable in one place.</p>
+        <!-- CLIENT FILE (one person, everything) -->
+        <section id="tab-clientfile" class="tab-panel">
+
+          <!-- File header -->
+          <div class="border border-ink-200 rounded-md bg-ink-50/40 overflow-hidden mb-5">
+            <!-- Folder tab strip -->
+            <div class="flex items-center gap-1 bg-white border-b border-ink-200 px-2 pt-2">
+              <div class="folder-tab bg-ink-50 border border-ink-200 border-b-0 rounded-t px-3 py-1 text-[11px] mono text-ink-700" id="file-tab-label">EL-001 · Elena Larsson</div>
+              <div class="flex-1"></div>
+              <button onclick="switchTab('clients')" class="text-[11px] text-ink-500 hover:text-ink-900 px-2 py-1">← Back to all files</button>
             </div>
-            <div class="flex items-center gap-2 text-xs">
-              <button class="px-2 py-1 rounded border border-ink-200 hover:bg-ink-50">Sort: <span class="text-ink-900 font-medium">Recent</span></button>
-              <button class="px-3 py-1.5 rounded border border-ink-200 hover:bg-ink-50 font-medium">Upload</button>
-              <button class="bg-ink-900 text-white px-3 py-1.5 rounded font-medium">+ New note</button>
+
+            <!-- Identity block -->
+            <div class="p-5 flex items-start gap-5">
+              <div id="file-avatar" class="w-20 h-20 rounded-md bg-flame-100 text-flame-700 flex items-center justify-center text-2xl font-semibold shrink-0">EL</div>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-baseline gap-3 flex-wrap">
+                  <h1 id="file-name" class="text-2xl font-semibold text-ink-900 tracking-tight">Elena Larsson</h1>
+                  <span id="file-pronouns" class="text-xs text-ink-500">she/her</span>
+                  <span class="text-xs text-ink-400">·</span>
+                  <span id="file-age" class="text-xs text-ink-500">34y</span>
+                  <span class="text-xs text-ink-400">·</span>
+                  <span id="file-id" class="mono text-xs text-ink-500">#EL-001 · opened Feb 2025</span>
+                </div>
+                <div id="file-contact" class="mt-1.5 text-xs text-ink-600 mono flex items-center gap-3 flex-wrap">
+                  <span>elena.larsson@gmail.com</span><span class="text-ink-300">·</span>
+                  <span>+46 70 555 2134</span><span class="text-ink-300">·</span>
+                  <span>Malmö, Sweden · UTC+1</span>
+                </div>
+                <div id="file-tags" class="mt-3 flex items-center gap-1.5 flex-wrap">
+                  <span class="chip bg-flame-100 text-flame-700">REIKI PRIMARY</span>
+                  <span class="chip bg-green-50 text-green-700"><span class="dot bg-green-500"></span>ACTIVE</span>
+                  <span class="chip bg-green-50 text-green-700">INTAKE ✓</span>
+                  <span class="chip bg-green-50 text-green-700">CONSENT ✓</span>
+                  <span class="chip bg-ink-100 text-ink-600">REFERRED BY DR. HALL</span>
+                </div>
+              </div>
+              <div class="flex flex-col gap-2 shrink-0">
+                <button class="bg-ink-900 hover:bg-ink-800 text-white text-xs font-medium px-3 py-1.5 rounded flex items-center gap-1.5">
+                  <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+                  Schedule session
+                </button>
+                <button class="border border-ink-200 hover:bg-white text-xs font-medium text-ink-700 px-3 py-1.5 rounded flex items-center gap-1.5">
+                  <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586L19 9v10a2 2 0 01-2 2z"/></svg>
+                  Add note
+                </button>
+                <button class="border border-ink-200 hover:bg-white text-xs font-medium text-ink-700 px-3 py-1.5 rounded flex items-center gap-1.5">
+                  <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/></svg>
+                  Upload doc
+                </button>
+              </div>
+            </div>
+
+            <!-- Stat strip -->
+            <div class="grid grid-cols-6 gap-0 border-t border-ink-200 bg-white">
+              <div class="px-4 py-3 border-r border-ink-100"><div class="text-[10px] uppercase tracking-wider text-ink-500">Sessions</div><div class="mt-0.5 text-lg font-semibold text-ink-900" id="st-sessions">4</div></div>
+              <div class="px-4 py-3 border-r border-ink-100"><div class="text-[10px] uppercase tracking-wider text-ink-500">LTV</div><div class="mt-0.5 text-lg font-semibold text-ink-900 mono" id="st-ltv">$540</div></div>
+              <div class="px-4 py-3 border-r border-ink-100"><div class="text-[10px] uppercase tracking-wider text-ink-500">Next</div><div class="mt-0.5 text-sm font-medium text-flame-700" id="st-next">Today · 2:00 PM</div></div>
+              <div class="px-4 py-3 border-r border-ink-100"><div class="text-[10px] uppercase tracking-wider text-ink-500">Cadence</div><div class="mt-0.5 text-sm text-ink-700 mono" id="st-cadence">every 7 days</div></div>
+              <div class="px-4 py-3 border-r border-ink-100"><div class="text-[10px] uppercase tracking-wider text-ink-500">Outstanding</div><div class="mt-0.5 text-sm text-ink-700 mono" id="st-owed">$0</div></div>
+              <div class="px-4 py-3"><div class="text-[10px] uppercase tracking-wider text-ink-500">Docs</div><div class="mt-0.5 text-lg font-semibold text-ink-900" id="st-docs">9</div></div>
             </div>
           </div>
 
-          <!-- Type breakdown -->
-          <div class="grid grid-cols-5 gap-0 border border-ink-200 rounded-md overflow-hidden mb-5">
-            <button class="px-4 py-3 border-r border-ink-100 text-left bg-ink-50/60">
-              <div class="text-[10px] uppercase tracking-wider text-ink-500">All</div>
-              <div class="mt-1 text-lg font-semibold text-ink-900">319</div>
-            </button>
-            <button class="px-4 py-3 border-r border-ink-100 text-left hover:bg-ink-50">
-              <div class="text-[10px] uppercase tracking-wider text-ink-500">Session notes</div>
-              <div class="mt-1 text-lg font-semibold text-ink-900">186</div>
-            </button>
-            <button class="px-4 py-3 border-r border-ink-100 text-left hover:bg-ink-50">
-              <div class="text-[10px] uppercase tracking-wider text-ink-500">Intake forms</div>
-              <div class="mt-1 text-lg font-semibold text-ink-900">34 <span class="text-xs text-amber-600 font-normal">·3 review</span></div>
-            </button>
-            <button class="px-4 py-3 border-r border-ink-100 text-left hover:bg-ink-50">
-              <div class="text-[10px] uppercase tracking-wider text-ink-500">Recordings</div>
-              <div class="mt-1 text-lg font-semibold text-ink-900">52 <span class="text-xs text-ink-400 font-normal">·4.2GB</span></div>
-            </button>
-            <button class="px-4 py-3 text-left hover:bg-ink-50">
-              <div class="text-[10px] uppercase tracking-wider text-ink-500">Consents</div>
-              <div class="mt-1 text-lg font-semibold text-ink-900">47 <span class="text-xs text-amber-600 font-normal">·2 exp</span></div>
-            </button>
+          <!-- Subtabs -->
+          <div class="border-b border-ink-200 flex items-center gap-0 mb-5 -mt-1 text-sm">
+            <button data-subtab="timeline"  aria-current="true" class="subtab border-b-2 border-transparent px-3 py-2 text-ink-500 hover:text-ink-800 font-medium">Timeline</button>
+            <button data-subtab="sessions"  class="subtab border-b-2 border-transparent px-3 py-2 text-ink-500 hover:text-ink-800 font-medium">Sessions <span class="mono text-xs text-ink-400" id="ct-sessions">4</span></button>
+            <button data-subtab="documents" class="subtab border-b-2 border-transparent px-3 py-2 text-ink-500 hover:text-ink-800 font-medium">Documents <span class="mono text-xs text-ink-400" id="ct-docs">9</span></button>
+            <button data-subtab="wellness"  class="subtab border-b-2 border-transparent px-3 py-2 text-ink-500 hover:text-ink-800 font-medium">Wellness</button>
+            <button data-subtab="billing"   class="subtab border-b-2 border-transparent px-3 py-2 text-ink-500 hover:text-ink-800 font-medium">Billing</button>
+            <button data-subtab="profile"   class="subtab border-b-2 border-transparent px-3 py-2 text-ink-500 hover:text-ink-800 font-medium">Profile &amp; intake</button>
           </div>
 
-          <!-- Filing table -->
+          <!-- TIMELINE -->
+          <div id="sub-timeline" class="subtab-panel active">
+            <div class="grid grid-cols-3 gap-5">
+              <div class="col-span-2 space-y-4" id="timeline-body"></div>
+              <aside class="space-y-4">
+                <div class="border border-ink-200 rounded-md p-4">
+                  <div class="text-[10px] uppercase tracking-wider text-ink-500 mb-2">Practitioner's pinned note</div>
+                  <div id="pinned-note" class="text-sm text-ink-700 leading-relaxed">Responds strongly to slower breathwork intros before Reiki. Shoulder tension tied to caregiving her mother. Sensitive to sound — keep volume low. Prefers 2pm slots (post-nap for her kid).</div>
+                  <div class="mt-2 text-[11px] text-ink-400 mono">last updated 2025-04-17</div>
+                </div>
+                <div class="border border-ink-200 rounded-md p-4">
+                  <div class="text-[10px] uppercase tracking-wider text-ink-500 mb-3">Goals</div>
+                  <div id="goals-body" class="space-y-3"></div>
+                </div>
+                <div class="border border-ink-200 rounded-md p-4">
+                  <div class="text-[10px] uppercase tracking-wider text-ink-500 mb-2">Emergency contact</div>
+                  <div class="text-sm text-ink-800">Anders Larsson (husband)</div>
+                  <div class="text-xs text-ink-500 mono mt-0.5">+46 70 555 2099</div>
+                </div>
+              </aside>
+            </div>
+          </div>
+
+          <!-- SESSIONS -->
+          <div id="sub-sessions" class="subtab-panel">
+            <div class="space-y-3" id="sessions-feed"></div>
+          </div>
+
+          <!-- DOCUMENTS -->
+          <div id="sub-documents" class="subtab-panel">
+            <div class="border-2 border-dashed border-ink-200 rounded-md p-6 text-center mb-4 hover:border-ink-400 transition">
+              <svg class="w-6 h-6 mx-auto text-ink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/></svg>
+              <div class="text-sm text-ink-600 mt-2">Drag files here, or <button class="text-flame-700 hover:underline font-medium">browse</button></div>
+              <div class="text-xs text-ink-400 mt-1">Auto-tagged by type · linked to most recent session</div>
+            </div>
+            <div class="border border-ink-200 rounded-md overflow-hidden">
+              <table class="w-full text-sm">
+                <thead class="text-[10px] uppercase tracking-wider text-ink-500 bg-ink-50/60 border-b border-ink-100">
+                  <tr>
+                    <th class="text-left font-medium px-4 py-2">File</th>
+                    <th class="text-left font-medium px-4 py-2">Type</th>
+                    <th class="text-left font-medium px-4 py-2">Session</th>
+                    <th class="text-left font-medium px-4 py-2">Size</th>
+                    <th class="text-left font-medium px-4 py-2">Updated</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="docs-body" class="divide-y divide-ink-100"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- WELLNESS -->
+          <div id="sub-wellness" class="subtab-panel">
+            <div class="grid grid-cols-2 gap-5">
+              <div class="border border-ink-200 rounded-md p-5">
+                <div class="text-[10px] uppercase tracking-wider text-ink-500 mb-3">Pre / post-session check-in</div>
+                <table class="w-full text-sm">
+                  <thead class="text-[10px] uppercase tracking-wider text-ink-400 border-b border-ink-100">
+                    <tr><th class="text-left font-medium py-2">Session</th><th class="text-left font-medium">Energy</th><th class="text-left font-medium">Anxiety</th><th class="text-left font-medium">Body</th></tr>
+                  </thead>
+                  <tbody id="checkin-body" class="divide-y divide-ink-100"></tbody>
+                </table>
+              </div>
+              <div class="border border-ink-200 rounded-md p-5">
+                <div class="text-[10px] uppercase tracking-wider text-ink-500 mb-3">Themes</div>
+                <div id="themes-body" class="flex flex-wrap gap-2"></div>
+                <div class="mt-5 text-[10px] uppercase tracking-wider text-ink-500 mb-2">Running observations</div>
+                <ul id="obs-body" class="text-sm text-ink-700 space-y-2 list-disc pl-4"></ul>
+              </div>
+              <div class="col-span-2 border border-ink-200 rounded-md p-5">
+                <div class="text-[10px] uppercase tracking-wider text-ink-500 mb-3">Intentions stated (chronological)</div>
+                <ol id="intentions-body" class="text-sm space-y-3"></ol>
+              </div>
+            </div>
+          </div>
+
+          <!-- BILLING -->
+          <div id="sub-billing" class="subtab-panel">
+            <div class="grid grid-cols-4 gap-0 border border-ink-200 rounded-md overflow-hidden mb-5">
+              <div class="px-4 py-3 border-r border-ink-100"><div class="text-[10px] uppercase tracking-wider text-ink-500">Lifetime paid</div><div class="mt-1 text-lg font-semibold text-ink-900 mono" id="b-paid">$540</div></div>
+              <div class="px-4 py-3 border-r border-ink-100"><div class="text-[10px] uppercase tracking-wider text-ink-500">Outstanding</div><div class="mt-1 text-lg font-semibold text-ink-900 mono" id="b-out">$0</div></div>
+              <div class="px-4 py-3 border-r border-ink-100"><div class="text-[10px] uppercase tracking-wider text-ink-500">Avg. per session</div><div class="mt-1 text-lg font-semibold text-ink-900 mono" id="b-avg">$135</div></div>
+              <div class="px-4 py-3"><div class="text-[10px] uppercase tracking-wider text-ink-500">Payment method</div><div class="mt-1 text-sm text-ink-700">Stripe · •••• 4242</div></div>
+            </div>
+            <div class="border border-ink-200 rounded-md overflow-hidden">
+              <table class="w-full text-sm">
+                <thead class="text-[10px] uppercase tracking-wider text-ink-500 bg-ink-50/60 border-b border-ink-100">
+                  <tr><th class="text-left font-medium px-4 py-2">Invoice</th><th class="text-left font-medium px-4 py-2">Session</th><th class="text-left font-medium px-4 py-2">Issued</th><th class="text-left font-medium px-4 py-2">Due</th><th class="text-left font-medium px-4 py-2">Amount</th><th class="text-left font-medium px-4 py-2">Status</th></tr>
+                </thead>
+                <tbody id="client-invoices-body" class="divide-y divide-ink-100"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- PROFILE -->
+          <div id="sub-profile" class="subtab-panel">
+            <div class="grid grid-cols-2 gap-5">
+              <div class="border border-ink-200 rounded-md p-5">
+                <div class="text-[10px] uppercase tracking-wider text-ink-500 mb-3">Contact</div>
+                <dl id="contact-body" class="text-sm grid grid-cols-[120px_1fr] gap-y-2 gap-x-4"></dl>
+              </div>
+              <div class="border border-ink-200 rounded-md p-5">
+                <div class="text-[10px] uppercase tracking-wider text-ink-500 mb-3">Consents &amp; agreements</div>
+                <ul id="consents-body" class="text-sm space-y-2"></ul>
+              </div>
+              <div class="col-span-2 border border-ink-200 rounded-md p-5">
+                <div class="flex items-center justify-between mb-3">
+                  <div class="text-[10px] uppercase tracking-wider text-ink-500">Intake answers</div>
+                  <a class="text-xs text-flame-700 hover:underline" href="#">Open full form ↗</a>
+                </div>
+                <dl id="intake-body" class="text-sm grid grid-cols-[220px_1fr] gap-y-3 gap-x-4"></dl>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- CALENDAR -->
+        <section id="tab-calendar" class="tab-panel">
+          <h1 class="text-xl font-semibold text-ink-900 tracking-tight mb-5">Calendar</h1>
           <div class="border border-ink-200 rounded-md overflow-hidden">
             <table class="w-full text-sm">
               <thead class="text-[10px] uppercase tracking-wider text-ink-500 bg-ink-50/60 border-b border-ink-100">
-                <tr>
-                  <th class="text-left font-medium px-4 py-2 w-8"><input type="checkbox" class="accent-flame-600"/></th>
-                  <th class="text-left font-medium px-4 py-2">Name</th>
-                  <th class="text-left font-medium px-4 py-2">Type</th>
-                  <th class="text-left font-medium px-4 py-2">Client</th>
-                  <th class="text-left font-medium px-4 py-2">Session</th>
-                  <th class="text-left font-medium px-4 py-2">Size</th>
-                  <th class="text-left font-medium px-4 py-2">Updated</th>
-                  <th class="text-left font-medium px-4 py-2"></th>
-                </tr>
+                <tr><th class="text-left font-medium px-4 py-2">When</th><th class="text-left font-medium px-4 py-2">Client</th><th class="text-left font-medium px-4 py-2">Modality</th><th class="text-left font-medium px-4 py-2">Dur</th><th class="text-left font-medium px-4 py-2">Status</th><th class="text-left font-medium px-4 py-2">Meet</th><th class="text-left font-medium px-4 py-2">Paid</th></tr>
               </thead>
-              <tbody id="filing-body" class="divide-y divide-ink-100"></tbody>
+              <tbody id="calendar-body" class="divide-y divide-ink-100"></tbody>
             </table>
           </div>
         </section>
 
-        <!-- BILLING -->
+        <!-- BILLING (global) -->
         <section id="tab-billing" class="tab-panel">
-          <div class="flex items-end justify-between mb-5">
-            <div>
-              <h1 class="text-xl font-semibold text-ink-900 tracking-tight">Billing</h1>
-              <p class="text-xs text-ink-500 mt-0.5">Invoices, payments, and outstanding balances.</p>
-            </div>
-            <div class="flex gap-2 text-xs">
-              <button class="px-3 py-1.5 border border-ink-200 rounded hover:bg-ink-50 font-medium">Export CSV</button>
-              <button class="bg-ink-900 text-white px-3 py-1.5 rounded font-medium">+ Invoice</button>
-            </div>
-          </div>
-
+          <h1 class="text-xl font-semibold text-ink-900 tracking-tight mb-5">Billing</h1>
           <div class="grid grid-cols-4 gap-0 border border-ink-200 rounded-md overflow-hidden mb-5">
-            <div class="px-4 py-3 border-r border-ink-100">
-              <div class="text-[10px] uppercase tracking-wider text-ink-500">Paid MTD</div>
-              <div class="mt-1 text-lg font-semibold text-ink-900 mono">$6,420</div>
-              <div class="text-[11px] text-ink-400 mt-0.5">28 invoices</div>
-            </div>
-            <div class="px-4 py-3 border-r border-ink-100">
-              <div class="text-[10px] uppercase tracking-wider text-ink-500">Outstanding</div>
-              <div class="mt-1 text-lg font-semibold text-ink-900 mono">$840</div>
-              <div class="text-[11px] text-amber-600 mt-0.5">4 invoices</div>
-            </div>
-            <div class="px-4 py-3 border-r border-ink-100">
-              <div class="text-[10px] uppercase tracking-wider text-ink-500">Overdue</div>
-              <div class="mt-1 text-lg font-semibold text-ink-900 mono">$210</div>
-              <div class="text-[11px] text-red-600 mt-0.5">1 invoice · 5d</div>
-            </div>
-            <div class="px-4 py-3">
-              <div class="text-[10px] uppercase tracking-wider text-ink-500">Avg. session</div>
-              <div class="mt-1 text-lg font-semibold text-ink-900 mono">$135</div>
-              <div class="text-[11px] text-ink-400 mt-0.5">last 90 days</div>
-            </div>
+            <div class="px-4 py-3 border-r border-ink-100"><div class="text-[10px] uppercase tracking-wider text-ink-500">Paid MTD</div><div class="mt-1 text-lg font-semibold text-ink-900 mono">$6,420</div></div>
+            <div class="px-4 py-3 border-r border-ink-100"><div class="text-[10px] uppercase tracking-wider text-ink-500">Outstanding</div><div class="mt-1 text-lg font-semibold text-ink-900 mono">$840</div></div>
+            <div class="px-4 py-3 border-r border-ink-100"><div class="text-[10px] uppercase tracking-wider text-ink-500">Overdue</div><div class="mt-1 text-lg font-semibold text-ink-900 mono">$210</div></div>
+            <div class="px-4 py-3"><div class="text-[10px] uppercase tracking-wider text-ink-500">Avg. session</div><div class="mt-1 text-lg font-semibold text-ink-900 mono">$135</div></div>
           </div>
-
           <div class="border border-ink-200 rounded-md overflow-hidden">
             <table class="w-full text-sm">
               <thead class="text-[10px] uppercase tracking-wider text-ink-500 bg-ink-50/60 border-b border-ink-100">
-                <tr>
-                  <th class="text-left font-medium px-4 py-2">Invoice</th>
-                  <th class="text-left font-medium px-4 py-2">Client</th>
-                  <th class="text-left font-medium px-4 py-2">Session</th>
-                  <th class="text-left font-medium px-4 py-2">Issued</th>
-                  <th class="text-left font-medium px-4 py-2">Due</th>
-                  <th class="text-left font-medium px-4 py-2">Amount</th>
-                  <th class="text-left font-medium px-4 py-2">Status</th>
-                  <th class="text-left font-medium px-4 py-2"></th>
-                </tr>
+                <tr><th class="text-left font-medium px-4 py-2">Invoice</th><th class="text-left font-medium px-4 py-2">Client</th><th class="text-left font-medium px-4 py-2">Issued</th><th class="text-left font-medium px-4 py-2">Due</th><th class="text-left font-medium px-4 py-2">Amount</th><th class="text-left font-medium px-4 py-2">Status</th></tr>
               </thead>
-              <tbody id="invoices-body" class="divide-y divide-ink-100"></tbody>
+              <tbody id="global-invoices-body" class="divide-y divide-ink-100"></tbody>
             </table>
           </div>
         </section>
@@ -466,10 +431,9 @@
       </div>
     </div>
 
-    <!-- Status bar -->
     <footer class="border-t border-ink-100 px-6 h-7 flex items-center gap-4 text-[11px] text-ink-500">
       <div class="flex items-center gap-1.5"><span class="dot bg-green-500"></span><span>All systems go</span></div>
-      <div>v0.1.0-prototype</div>
+      <div>v0.2.0-prototype</div>
       <div class="flex-1"></div>
       <div>Last backup <span class="mono text-ink-700">2025-04-19 13:12</span></div>
       <div><span class="kbd">?</span> shortcuts</div>
@@ -477,7 +441,7 @@
   </main>
 </div>
 
-<!-- New session modal -->
+<!-- Modals -->
 <div id="modal-new" class="fixed inset-0 bg-ink-900/40 hidden items-start justify-center z-50 pt-24">
   <div class="bg-white rounded-md w-full max-w-lg mx-4 shadow-2xl border border-ink-200">
     <div class="flex items-center justify-between px-5 py-3 border-b border-ink-100">
@@ -485,51 +449,44 @@
         <svg class="w-3.5 h-3.5 text-flame-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
         New session
       </div>
-      <button onclick="closeModal('new')" class="text-ink-400 hover:text-ink-800">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
-      </button>
+      <button onclick="closeModal('new')" class="text-ink-400 hover:text-ink-800"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg></button>
     </div>
     <div class="p-5 space-y-3 text-sm">
-      <div class="grid grid-cols-[90px_1fr] items-center gap-3">
-        <label class="text-xs text-ink-500">Client</label>
-        <select class="px-2 py-1.5 border border-ink-200 rounded text-sm outline-none focus:border-ink-400">
-          <option>Elena Larsson</option><option>Julián Morales</option><option>Aanya Kapoor</option><option>+ Add new…</option>
-        </select>
-      </div>
-      <div class="grid grid-cols-[90px_1fr] items-center gap-3">
-        <label class="text-xs text-ink-500">Date / time</label>
-        <div class="grid grid-cols-2 gap-2">
-          <input type="date" class="px-2 py-1.5 border border-ink-200 rounded text-sm outline-none focus:border-ink-400"/>
-          <input type="time" class="px-2 py-1.5 border border-ink-200 rounded text-sm outline-none focus:border-ink-400"/>
-        </div>
-      </div>
-      <div class="grid grid-cols-[90px_1fr] items-center gap-3">
-        <label class="text-xs text-ink-500">Modality</label>
-        <select class="px-2 py-1.5 border border-ink-200 rounded text-sm outline-none focus:border-ink-400">
-          <option>Reiki</option><option>Sound healing</option><option>Breathwork</option><option>Guided meditation</option><option>Intake call</option>
-        </select>
-      </div>
-      <div class="grid grid-cols-[90px_1fr] items-center gap-3">
-        <label class="text-xs text-ink-500">Duration</label>
-        <select class="px-2 py-1.5 border border-ink-200 rounded text-sm outline-none focus:border-ink-400">
-          <option>30 min</option><option selected>60 min</option><option>90 min</option>
-        </select>
-      </div>
-      <div class="grid grid-cols-[90px_1fr] items-start gap-3">
-        <label class="text-xs text-ink-500 pt-1.5">Notes</label>
-        <textarea rows="2" class="px-2 py-1.5 border border-ink-200 rounded text-sm outline-none focus:border-ink-400 resize-none" placeholder="Optional context for yourself…"></textarea>
-      </div>
-      <div class="flex items-center gap-2 pt-1 text-xs text-ink-500">
-        <input type="checkbox" checked class="accent-flame-600" />
-        <span>Auto-generate Google Meet link &amp; send calendar invite</span>
-      </div>
+      <div class="grid grid-cols-[90px_1fr] items-center gap-3"><label class="text-xs text-ink-500">Client</label><select class="px-2 py-1.5 border border-ink-200 rounded text-sm"><option>Elena Larsson</option><option>Julián Morales</option><option>Aanya Kapoor</option><option>+ New…</option></select></div>
+      <div class="grid grid-cols-[90px_1fr] items-center gap-3"><label class="text-xs text-ink-500">Date / time</label><div class="grid grid-cols-2 gap-2"><input type="date" class="px-2 py-1.5 border border-ink-200 rounded text-sm"/><input type="time" class="px-2 py-1.5 border border-ink-200 rounded text-sm"/></div></div>
+      <div class="grid grid-cols-[90px_1fr] items-center gap-3"><label class="text-xs text-ink-500">Modality</label><select class="px-2 py-1.5 border border-ink-200 rounded text-sm"><option>Reiki</option><option>Sound healing</option><option>Breathwork</option><option>Guided meditation</option></select></div>
+      <div class="flex items-center gap-2 pt-1 text-xs text-ink-500"><input type="checkbox" checked class="accent-flame-600"/><span>Auto-generate Google Meet link &amp; send calendar invite</span></div>
     </div>
     <div class="flex items-center justify-between px-5 py-3 border-t border-ink-100 bg-ink-50/40">
       <div class="text-xs text-ink-500"><span class="kbd">⌘</span> <span class="kbd">↵</span> to save</div>
-      <div class="flex gap-2">
-        <button onclick="closeModal('new')" class="px-3 py-1.5 text-xs text-ink-600 hover:bg-ink-100 rounded">Cancel</button>
-        <button onclick="closeModal('new')" class="px-3 py-1.5 text-xs bg-ink-900 hover:bg-ink-800 text-white rounded font-medium">Schedule session</button>
+      <div class="flex gap-2"><button onclick="closeModal('new')" class="px-3 py-1.5 text-xs text-ink-600 hover:bg-ink-100 rounded">Cancel</button><button onclick="closeModal('new')" class="px-3 py-1.5 text-xs bg-ink-900 hover:bg-ink-800 text-white rounded font-medium">Schedule</button></div>
+    </div>
+  </div>
+</div>
+
+<div id="modal-new-client" class="fixed inset-0 bg-ink-900/40 hidden items-start justify-center z-50 pt-24">
+  <div class="bg-white rounded-md w-full max-w-lg mx-4 shadow-2xl border border-ink-200">
+    <div class="flex items-center justify-between px-5 py-3 border-b border-ink-100">
+      <div class="flex items-center gap-2 text-sm font-medium text-ink-900">
+        <svg class="w-3.5 h-3.5 text-flame-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V7z"/></svg>
+        Open new client file
       </div>
+      <button onclick="closeModal('new-client')" class="text-ink-400 hover:text-ink-800"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg></button>
+    </div>
+    <div class="p-5 space-y-3 text-sm">
+      <div class="grid grid-cols-2 gap-3">
+        <div><label class="block text-xs text-ink-500 mb-1">Full name</label><input class="w-full px-2 py-1.5 border border-ink-200 rounded text-sm" placeholder="Jane Doe"/></div>
+        <div><label class="block text-xs text-ink-500 mb-1">Pronouns</label><input class="w-full px-2 py-1.5 border border-ink-200 rounded text-sm" placeholder="she/her"/></div>
+      </div>
+      <div class="grid grid-cols-2 gap-3">
+        <div><label class="block text-xs text-ink-500 mb-1">Email</label><input class="w-full px-2 py-1.5 border border-ink-200 rounded text-sm"/></div>
+        <div><label class="block text-xs text-ink-500 mb-1">Phone</label><input class="w-full px-2 py-1.5 border border-ink-200 rounded text-sm"/></div>
+      </div>
+      <div class="flex items-center gap-2 pt-1 text-xs text-ink-500"><input type="checkbox" checked class="accent-flame-600"/><span>Email intake form automatically</span></div>
+    </div>
+    <div class="flex items-center justify-end gap-2 px-5 py-3 border-t border-ink-100 bg-ink-50/40">
+      <button onclick="closeModal('new-client')" class="px-3 py-1.5 text-xs text-ink-600 hover:bg-ink-100 rounded">Cancel</button>
+      <button onclick="closeModal('new-client')" class="px-3 py-1.5 text-xs bg-ink-900 hover:bg-ink-800 text-white rounded font-medium">Open file</button>
     </div>
   </div>
 </div>
@@ -539,247 +496,548 @@
   <div class="bg-white rounded-md w-full max-w-xl mx-4 shadow-2xl border border-ink-200 overflow-hidden">
     <div class="flex items-center gap-2 px-4 py-3 border-b border-ink-100">
       <svg class="w-4 h-4 text-ink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-      <input autofocus placeholder="Type a command or search…" class="flex-1 outline-none text-sm bg-transparent" />
+      <input autofocus placeholder="Search clients, sessions, documents…" class="flex-1 outline-none text-sm"/>
       <button onclick="closeCmd()" class="kbd">esc</button>
     </div>
     <div class="p-2 text-sm">
-      <div class="px-2 py-1 text-[10px] uppercase tracking-wider text-ink-400">Actions</div>
-      <button class="w-full flex items-center gap-3 px-2 py-1.5 rounded hover:bg-ink-50 text-left">
-        <svg class="w-3.5 h-3.5 text-ink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
-        <span class="flex-1">New session</span><span class="kbd">C</span>
-      </button>
-      <button class="w-full flex items-center gap-3 px-2 py-1.5 rounded hover:bg-ink-50 text-left">
-        <svg class="w-3.5 h-3.5 text-ink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
-        <span class="flex-1">Add client</span><span class="kbd">C C</span>
-      </button>
-      <button class="w-full flex items-center gap-3 px-2 py-1.5 rounded hover:bg-ink-50 text-left">
-        <svg class="w-3.5 h-3.5 text-ink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586L19 9v10a2 2 0 01-2 2z"/></svg>
-        <span class="flex-1">Write session note</span><span class="kbd">N</span>
-      </button>
-      <div class="px-2 py-1 mt-2 text-[10px] uppercase tracking-wider text-ink-400">Jump to</div>
-      <button class="w-full flex items-center gap-3 px-2 py-1.5 rounded hover:bg-ink-50 text-left">
+      <div class="px-2 py-1 text-[10px] uppercase tracking-wider text-ink-400">Jump to client file</div>
+      <button data-open="elena" class="cmd-jump w-full flex items-center gap-3 px-2 py-1.5 rounded hover:bg-ink-50 text-left">
         <div class="w-5 h-5 rounded-sm bg-flame-100 text-flame-700 flex items-center justify-center text-[10px] font-semibold">EL</div>
-        <span class="flex-1">Elena Larsson</span><span class="text-xs text-ink-400">Client</span>
+        <span class="flex-1">Elena Larsson</span><span class="text-xs text-ink-400">4 sessions</span>
       </button>
-      <button class="w-full flex items-center gap-3 px-2 py-1.5 rounded hover:bg-ink-50 text-left">
-        <div class="w-5 h-5 rounded-sm bg-ink-100 text-ink-700 flex items-center justify-center text-[10px] font-semibold">JM</div>
-        <span class="flex-1">Julián Morales</span><span class="text-xs text-ink-400">Client</span>
+      <button data-open="marcus" class="cmd-jump w-full flex items-center gap-3 px-2 py-1.5 rounded hover:bg-ink-50 text-left">
+        <div class="w-5 h-5 rounded-sm bg-ink-100 text-ink-700 flex items-center justify-center text-[10px] font-semibold">MD</div>
+        <span class="flex-1">Marcus Devoe</span><span class="text-xs text-red-600">$210 overdue</span>
       </button>
-      <button class="w-full flex items-center gap-3 px-2 py-1.5 rounded hover:bg-ink-50 text-left">
-        <div class="w-5 h-5 rounded-sm bg-ink-100 text-ink-700 flex items-center justify-center text-[10px] font-semibold">IN</div>
-        <span class="flex-1">INV-1042 · Marcus Devoe · $210</span><span class="text-xs text-red-600">Overdue</span>
+      <button data-open="noa" class="cmd-jump w-full flex items-center gap-3 px-2 py-1.5 rounded hover:bg-ink-50 text-left">
+        <div class="w-5 h-5 rounded-sm bg-green-100 text-green-700 flex items-center justify-center text-[10px] font-semibold">NB</div>
+        <span class="flex-1">Noa Bennett</span><span class="text-xs text-ink-400">12 sessions</span>
+      </button>
+      <button data-open="aanya" class="cmd-jump w-full flex items-center gap-3 px-2 py-1.5 rounded hover:bg-ink-50 text-left">
+        <div class="w-5 h-5 rounded-sm bg-amber-100 text-amber-700 flex items-center justify-center text-[10px] font-semibold">AK</div>
+        <span class="flex-1">Aanya Kapoor</span><span class="text-xs text-amber-700">intake missing</span>
       </button>
     </div>
   </div>
 </div>
 
 <script>
-// -------- Data --------
-const today = [
-  { time: '2:00 PM', client: 'Elena Larsson',  modality: 'Reiki',         dur: '60m', meet: 'xyh-abcd-qrs', status: 'next' },
-  { time: '4:00 PM', client: 'Julián Morales', modality: 'Sound healing', dur: '90m', meet: 'mnp-fghi-jkl', status: 'scheduled' },
-  { time: '6:30 PM', client: 'Aanya Kapoor',   modality: 'Intake call',   dur: '30m', meet: 'abc-defg-hij', status: 'intake' },
-];
+// =============== DATA ===============
 
-const sessions = [
-  { when: 'Today 14:00',      client: 'Elena Larsson',  modality: 'Reiki',             dur: '60m', status: 'Upcoming',  meet: 'xyh-abcd-qrs', notes: '—',       paid: 'Paid'  },
-  { when: 'Today 16:00',      client: 'Julián Morales', modality: 'Sound healing',     dur: '90m', status: 'Upcoming',  meet: 'mnp-fghi-jkl', notes: '—',       paid: 'Paid'  },
-  { when: 'Today 18:30',      client: 'Aanya Kapoor',   modality: 'Intake call',       dur: '30m', status: 'Intake',    meet: 'abc-defg-hij', notes: 'pending', paid: '—'     },
-  { when: 'Tue 10:00',        client: 'Marcus Devoe',   modality: 'Breathwork',        dur: '60m', status: 'Upcoming',  meet: 'qrs-tuvw-xyz', notes: '—',       paid: 'Unpaid'},
-  { when: 'Tue 15:00',        client: 'Jamie Rhodes',   modality: 'Reiki',             dur: '60m', status: 'Upcoming',  meet: 'klm-nopq-rst', notes: '—',       paid: 'Paid'  },
-  { when: 'Wed 09:00',        client: 'Priya Shah',     modality: 'Guided meditation', dur: '45m', status: 'Upcoming',  meet: 'uvw-xyza-bcd', notes: '—',       paid: 'Paid'  },
-  { when: 'Yesterday 17:00',  client: 'Elena Larsson',  modality: 'Reiki',             dur: '60m', status: 'Completed', meet: '—',            notes: '2 pages', paid: 'Paid'  },
-  { when: 'Apr 16 11:00',     client: 'Noa Bennett',    modality: 'Sound healing',     dur: '60m', status: 'Completed', meet: '—',            notes: 'pending', paid: 'Paid'  },
-  { when: 'Apr 15 19:00',     client: 'Devon Lee',      modality: 'Breathwork',        dur: '45m', status: 'Cancelled', meet: '—',            notes: '—',       paid: '—'     },
-];
-
+// Client directory records (shown on Clients tab)
 const clients = [
-  { name:'Elena Larsson',  email:'elena.larsson@gmail.com',   phone:'+46 70 555 2134', sessions:4,  last:'2d',   cadence:'7d',  ltv:'$540',  intake:'✓', consent:'✓' },
-  { name:'Julián Morales', email:'julian.m@outlook.com',      phone:'+34 612 498 201', sessions:2,  last:'Today',cadence:'14d', ltv:'$270',  intake:'✓', consent:'✓' },
-  { name:'Marcus Devoe',   email:'marcus.devoe@proton.me',    phone:'+1 415 555 0199', sessions:9,  last:'6d',   cadence:'10d', ltv:'$1,215',intake:'✓', consent:'✓' },
-  { name:'Jamie Rhodes',   email:'jamie.r@icloud.com',        phone:'+1 212 555 0144', sessions:6,  last:'11d',  cadence:'10d', ltv:'$810',  intake:'✓', consent:'✓' },
-  { name:'Priya Shah',     email:'priya.shah@gmail.com',      phone:'+91 98100 44021', sessions:3,  last:'4d',   cadence:'14d', ltv:'$405',  intake:'✓', consent:'exp 7d' },
-  { name:'Noa Bennett',    email:'noa.bennett@fastmail.com',  phone:'+1 503 555 0172', sessions:12, last:'3d',   cadence:'5d',  ltv:'$1,620',intake:'✓', consent:'✓' },
-  { name:'Aanya Kapoor',   email:'aanya.k@gmail.com',         phone:'+1 646 555 0109', sessions:0,  last:'—',    cadence:'—',   ltv:'$0',    intake:'⚠ missing', consent:'—' },
-  { name:'Devon Lee',      email:'devonlee@hey.com',          phone:'+1 718 555 0166', sessions:1,  last:'32d',  cadence:'—',   ltv:'$135',  intake:'✓', consent:'✓' },
-  { name:'Sofia Ortega',   email:'sofia.ortega@gmail.com',    phone:'+52 55 1234 5678',sessions:5,  last:'9d',   cadence:'12d', ltv:'$675',  intake:'✓', consent:'✓' },
+  { id:'elena',  code:'EL-001', name:'Elena Larsson',  avatar:'bg-flame-100 text-flame-700', working:'Shoulder tension · caregiver burnout', sessions:4,  last:'2d',   next:'Today 2pm', cadence:'7d',  ltv:'$540',  docs:9, flags:[] },
+  { id:'marcus', code:'MD-008', name:'Marcus Devoe',   avatar:'bg-ink-100 text-ink-700',     working:'Sleep · anxiety · grief (father, 2024)',sessions:9,  last:'6d',   next:'Tue 10am', cadence:'10d', ltv:'$1,215',docs:14,flags:['overdue'] },
+  { id:'noa',    code:'NB-003', name:'Noa Bennett',    avatar:'bg-green-100 text-green-700', working:'Grounding · chronic migraine',          sessions:12, last:'3d',   next:'Fri 11am', cadence:'5d',  ltv:'$1,620',docs:22,flags:[] },
+  { id:'julian', code:'JM-011', name:'Julián Morales', avatar:'bg-blue-100 text-blue-700',   working:'Breath restriction · career pivot',     sessions:2,  last:'Today',next:'Apr 29',   cadence:'14d', ltv:'$270',  docs:5, flags:[] },
+  { id:'priya',  code:'PS-005', name:'Priya Shah',     avatar:'bg-purple-100 text-purple-700',working:'Meditation consistency · new-mom',     sessions:3,  last:'4d',   next:'Wed 9am',  cadence:'14d', ltv:'$405',  docs:7, flags:['consent-exp'] },
+  { id:'jamie',  code:'JR-002', name:'Jamie Rhodes',   avatar:'bg-ink-100 text-ink-700',     working:'Relationship grief',                    sessions:6,  last:'11d',  next:'Tue 3pm',  cadence:'10d', ltv:'$810',  docs:11,flags:['dormant'] },
+  { id:'aanya',  code:'AK-013', name:'Aanya Kapoor',   avatar:'bg-amber-100 text-amber-700', working:'New client · intake pending',           sessions:0,  last:'—',    next:'Today 6:30pm',cadence:'—',ltv:'$0',    docs:0, flags:['intake'] },
+  { id:'devon',  code:'DL-006', name:'Devon Lee',      avatar:'bg-ink-100 text-ink-700',     working:'Burnout recovery · dormant',            sessions:1,  last:'32d',  next:'—',        cadence:'—',   ltv:'$135',  docs:3, flags:['dormant'] },
+  { id:'sofia',  code:'SO-009', name:'Sofia Ortega',   avatar:'bg-green-100 text-green-700', working:'Voice/throat · public speaking',        sessions:5,  last:'9d',   next:'Apr 24',   cadence:'12d', ltv:'$675',  docs:10,flags:[] },
 ];
 
-const filings = [
-  { name:'2025-04-19_elena-larsson_session-notes.md', type:'Note',      client:'Elena Larsson',  session:'Reiki 60m · Apr 19',        size:'3 KB',   updated:'12m' },
-  { name:'aanya-kapoor_intake-form.pdf',               type:'Intake',    client:'Aanya Kapoor',   session:'Intake · Apr 19',           size:'284 KB', updated:'1h',  flag:'review' },
-  { name:'2025-04-16_noa-bennett_session.mp4',         type:'Recording', client:'Noa Bennett',    session:'Sound healing · Apr 16',    size:'412 MB', updated:'3d' },
-  { name:'priya-shah_consent-signed.pdf',              type:'Consent',   client:'Priya Shah',     session:'—',                          size:'118 KB', updated:'4d',  flag:'exp 7d' },
-  { name:'2025-04-13_marcus-devoe_session-notes.md',   type:'Note',      client:'Marcus Devoe',   session:'Breathwork 60m · Apr 13',   size:'5 KB',   updated:'6d' },
-  { name:'2025-04-10_jamie-rhodes_session.mp4',        type:'Recording', client:'Jamie Rhodes',   session:'Reiki 60m · Apr 10',        size:'368 MB', updated:'9d' },
-  { name:'sofia-ortega_intake-form.pdf',               type:'Intake',    client:'Sofia Ortega',   session:'Intake · Apr 07',           size:'196 KB', updated:'12d' },
-  { name:'elena-larsson_followup-email.md',            type:'Note',      client:'Elena Larsson',  session:'—',                          size:'2 KB',   updated:'14d' },
-];
-
-const invoices = [
-  { id:'INV-1048', client:'Elena Larsson',  session:'Reiki · Apr 18',         issued:'Apr 18', due:'Apr 25', amount:'$135', status:'Paid' },
-  { id:'INV-1047', client:'Julián Morales', session:'Sound healing · Apr 17', issued:'Apr 17', due:'Apr 24', amount:'$180', status:'Paid' },
-  { id:'INV-1046', client:'Priya Shah',     session:'Meditation · Apr 16',    issued:'Apr 16', due:'Apr 23', amount:'$105', status:'Outstanding' },
-  { id:'INV-1045', client:'Marcus Devoe',   session:'2x Breathwork',          issued:'Apr 14', due:'Apr 21', amount:'$270', status:'Paid' },
-  { id:'INV-1044', client:'Noa Bennett',    session:'Sound healing · Apr 13', issued:'Apr 13', due:'Apr 20', amount:'$135', status:'Paid' },
-  { id:'INV-1043', client:'Jamie Rhodes',   session:'Reiki · Apr 10',         issued:'Apr 10', due:'Apr 17', amount:'$135', status:'Outstanding' },
-  { id:'INV-1042', client:'Marcus Devoe',   session:'Breathwork pkg',         issued:'Apr 07', due:'Apr 14', amount:'$210', status:'Overdue' },
-  { id:'INV-1041', client:'Sofia Ortega',   session:'Intake + 2 sessions',    issued:'Apr 06', due:'Apr 13', amount:'$405', status:'Outstanding' },
-];
-
-// -------- Helpers --------
-const initials = (n) => n.split(' ').map(p => p[0]).slice(0,2).join('');
-const avatar = (n) => {
-  const palettes = ['bg-ink-100 text-ink-700','bg-flame-100 text-flame-700','bg-green-100 text-green-700','bg-blue-100 text-blue-700','bg-purple-100 text-purple-700'];
-  return palettes[n.charCodeAt(0) % palettes.length];
+// Deep per-client file data. Elena is fully fleshed; others share a template with tweaks.
+const files = {
+  elena: {
+    id:'EL-001', name:'Elena Larsson', avatar:'EL', avatarCls:'bg-flame-100 text-flame-700',
+    pronouns:'she/her', age:'34y', opened:'Feb 2025',
+    contact:{ email:'elena.larsson@gmail.com', phone:'+46 70 555 2134', location:'Malmö, Sweden · UTC+1' },
+    tags:[['REIKI PRIMARY','bg-flame-100 text-flame-700'],['ACTIVE','bg-green-50 text-green-700','dot-green'],['INTAKE ✓','bg-green-50 text-green-700'],['CONSENT ✓','bg-green-50 text-green-700'],['REFERRED BY DR. HALL','bg-ink-100 text-ink-600']],
+    stats:{ sessions:4, ltv:'$540', next:'Today · 2:00 PM', cadence:'every 7 days', owed:'$0', docs:9 },
+    pinned:"Responds strongly to slower breathwork intros before Reiki. Shoulder tension tied to caregiving her mother. Sensitive to sound — keep volume low. Prefers 2pm slots (post-nap for her kid).",
+    goals:[
+      { label:'Reduce shoulder tension', progress:55, note:'improving 3 of last 4 sessions' },
+      { label:'Sleep through the night',  progress:30, note:'intermittent · stress-driven' },
+      { label:'Boundaries w/ mother',     progress:40, note:'ongoing theme' },
+    ],
+    timeline:[
+      { kind:'session-upcoming', when:'Today · 2:00 PM', title:'Reiki · 60m', body:'Scheduled. Meet link auto-sent. Last note flagged shoulder tension — plan to open with slower breath.' },
+      { kind:'note',             when:'2d ago',           title:'Session note · Apr 17', body:'Arrived tense (energy 3/10). Slower settling than usual — took 12 min. Worked right shoulder / neck. Post-session reported "warmer, looser." Recommended hydration + 10m walk.' },
+      { kind:'invoice-paid',     when:'2d ago',           title:'INV-1048 paid · $135', body:'Stripe · card on file.' },
+      { kind:'session',          when:'9d ago',           title:'Reiki · 60m (Apr 10)',  body:'3rd session. Opened with breath (5m). Noted caregiver fatigue narrative re: mother. Strong response around solar plexus.' },
+      { kind:'upload',           when:'12d ago',          title:'consent-v2-signed.pdf uploaded', body:'Renewed consent · valid until 2026-04-07.' },
+      { kind:'note',             when:'14d ago',          title:'Followup email drafted', body:'Checked in mid-week between sessions — responded positively, reported sleep had improved 2 of 3 nights.' },
+      { kind:'session',          when:'16d ago',          title:'Reiki · 60m (Apr 03)',  body:'2nd session. First session with full length (prior was 45m). Tears midway, welcomed.' },
+      { kind:'session',          when:'30d ago',          title:'Intake + Reiki · 45m (Mar 20)', body:'First session. Intake completed same day. Goal set: "feel less wound up at bedtime."' },
+      { kind:'upload',           when:'30d ago',          title:'intake-form.pdf uploaded', body:'Reviewed · all required fields complete.' },
+      { kind:'file-open',        when:'Feb 2025',         title:'File opened', body:'Referred by Dr. Hall (family physician).' },
+    ],
+    sessions:[
+      { date:'Today', modality:'Reiki', dur:'60m', status:'Upcoming', intention:'Soften shoulders · quiet the inner critic', pre:{energy:'—',anxiety:'—',body:'—'}, post:null, notes:'(will add after session)' },
+      { date:'Apr 17', modality:'Reiki', dur:'60m', status:'Completed', intention:'Unwind the week', pre:{energy:3,anxiety:7,body:'tight r-shoulder'}, post:{energy:7,anxiety:4,body:'warmer, looser'}, notes:'Arrived tense. Slower settling than usual — took 12 min. Worked right shoulder and neck at length. Breath anchoring at sternum. Post reported "warmer, looser." Recommended hydration and a short walk.' },
+      { date:'Apr 10', modality:'Reiki', dur:'60m', status:'Completed', intention:'Feel supported',      pre:{energy:5,anxiety:6,body:'low back tight'}, post:{energy:8,anxiety:3,body:'open in hips'}, notes:'Breath-led opening (5m). Caregiver fatigue came up re: her mother. Strong response around solar plexus — held space without intervention.' },
+      { date:'Apr 03', modality:'Reiki', dur:'60m', status:'Completed', intention:'Be present to whatever comes', pre:{energy:4,anxiety:8,body:'clenched jaw'}, post:{energy:7,anxiety:4,body:'jaw released'}, notes:'Tears midway, welcomed. First full-length session. Closed with a guided visualization (oak tree).' },
+      { date:'Mar 20', modality:'Intake + Reiki', dur:'45m', status:'Completed', intention:'"Feel less wound up at bedtime"', pre:{energy:3,anxiety:8,body:'tight chest'}, post:{energy:6,anxiety:5,body:'warmer'}, notes:'First session, abbreviated. Intake reviewed live. Goals set together.' },
+    ],
+    documents:[
+      { name:'2025-04-17_elena-larsson_session-notes.md', type:'Note',      session:'Reiki 60m · Apr 17', size:'3 KB',   updated:'2d' },
+      { name:'2025-04-10_elena-larsson_session-notes.md', type:'Note',      session:'Reiki 60m · Apr 10', size:'4 KB',   updated:'9d' },
+      { name:'2025-04-03_elena-larsson_session-notes.md', type:'Note',      session:'Reiki 60m · Apr 03', size:'3 KB',   updated:'16d' },
+      { name:'consent-v2-signed.pdf',                     type:'Consent',   session:'—',                  size:'118 KB', updated:'12d' },
+      { name:'intake-form.pdf',                           type:'Intake',    session:'Mar 20',             size:'284 KB', updated:'30d' },
+      { name:'referral-letter_dr-hall.pdf',               type:'Note',      session:'—',                  size:'62 KB',  updated:'Feb' },
+      { name:'2025-04-10_session-recording.mp4',          type:'Recording', session:'Reiki 60m · Apr 10', size:'412 MB', updated:'9d' },
+      { name:'goal-sheet.md',                             type:'Note',      session:'—',                  size:'2 KB',   updated:'16d' },
+      { name:'followup-email_apr-13.md',                  type:'Note',      session:'—',                  size:'1 KB',   updated:'14d' },
+    ],
+    checkins:[
+      { session:'Apr 17', energy:[3,7], anxiety:[7,4], body:'tight shoulder → looser' },
+      { session:'Apr 10', energy:[5,8], anxiety:[6,3], body:'low back → open hips' },
+      { session:'Apr 03', energy:[4,7], anxiety:[8,4], body:'clenched jaw → released' },
+      { session:'Mar 20', energy:[3,6], anxiety:[8,5], body:'tight chest → warmer' },
+    ],
+    themes:['Caregiver fatigue','Shoulder tension','Sleep','Mother relationship','Boundaries','Sensitivity to sound'],
+    observations:[
+      'Consistently arrives with high anxiety (7–8); leaves at 3–5. Pattern holds across all sessions.',
+      'Tears at the second session were a release point — rapport deepened after.',
+      'Physical tension tracks with visits to her mother (noted in 3 of 4 sessions).',
+      'Responds to slow, quiet settings. Louder sound (bowls above 40%) shortens her exhale.',
+    ],
+    intentions:[
+      { when:'Mar 20', text:'"Feel less wound up at bedtime."' },
+      { when:'Apr 03', text:'"Be present to whatever comes."' },
+      { when:'Apr 10', text:'"Feel supported."' },
+      { when:'Apr 17', text:'"Unwind the week."' },
+      { when:'Today',  text:'"Soften shoulders · quiet the inner critic."' },
+    ],
+    billing:{ paid:'$540', out:'$0', avg:'$135' },
+    invoices:[
+      { id:'INV-1048', session:'Reiki · Apr 18', issued:'Apr 18', due:'Apr 25', amount:'$135', status:'Paid' },
+      { id:'INV-1037', session:'Reiki · Apr 11', issued:'Apr 11', due:'Apr 18', amount:'$135', status:'Paid' },
+      { id:'INV-1029', session:'Reiki · Apr 04', issued:'Apr 04', due:'Apr 11', amount:'$135', status:'Paid' },
+      { id:'INV-1019', session:'Intake+Reiki · Mar 21', issued:'Mar 21', due:'Mar 28', amount:'$135', status:'Paid' },
+    ],
+    contactFull:[ ['Email','elena.larsson@gmail.com'],['Phone','+46 70 555 2134'],['Address','Kristianstadsgatan 8, Malmö'],['DOB','1991-08-14'],['Emergency','Anders Larsson (husband) · +46 70 555 2099'],['Pref. time','Weekday afternoons (post-nap for kid)'],['Timezone','UTC+1'] ],
+    consents:[
+      { label:'Informed consent (v2)',   status:'Signed 2025-04-07', ok:true  },
+      { label:'Recording consent',        status:'Signed 2025-02-10', ok:true  },
+      { label:'Communication preferences',status:'Email + SMS',       ok:true  },
+      { label:'Cancellation policy',      status:'Acknowledged',      ok:true  },
+    ],
+    intake:[
+      ['Presenting concern','Shoulder / neck tension, poor sleep, caregiver fatigue'],
+      ['Prior healing work','Yoga (10y), brief CBT (2022), one massage therapist'],
+      ['Current medical','None. Vitamin D supplement. No contraindications.'],
+      ['Medications','None'],
+      ['Mental health history','Situational anxiety (mother\'s illness)'],
+      ['Trauma disclosure','Opted to share verbally if relevant'],
+      ['Spiritual/religious','Open · no specific tradition'],
+      ['How did you find me?','Referral from Dr. Hall'],
+      ['Pronouns','she/her'],
+      ['Anything I should know?','Partner is supportive. Kid is 3 — naps 1–3pm.'],
+    ],
+  },
 };
-const chip = (s) => {
-  const map = {
-    Upcoming:    ['bg-ink-100 text-ink-700','bg-ink-500'],
-    Completed:   ['bg-green-50 text-green-700','bg-green-500'],
-    Cancelled:   ['bg-ink-100 text-ink-500','bg-ink-400'],
-    Intake:      ['bg-amber-50 text-amber-700','bg-amber-500'],
-    Paid:        ['bg-green-50 text-green-700','bg-green-500'],
-    Outstanding: ['bg-amber-50 text-amber-700','bg-amber-500'],
-    Overdue:     ['bg-red-50 text-red-700','bg-red-500'],
-    Unpaid:      ['bg-amber-50 text-amber-700','bg-amber-500'],
+
+// Template for other clients — shallower content, reuses structure.
+function buildTemplate(id, over) {
+  const c = clients.find(x => x.id === id);
+  const base = {
+    id: c.code, name: c.name, avatar: c.name.split(' ').map(p=>p[0]).slice(0,2).join(''), avatarCls: c.avatar,
+    pronouns:'—', age:'—', opened:'—',
+    contact:{ email:'—', phone:'—', location:'—' },
+    tags:[],
+    stats:{ sessions:c.sessions, ltv:c.ltv, next:c.next || '—', cadence:c.cadence, owed:'$0', docs:c.docs },
+    pinned: 'No pinned observations yet — add one from the practitioner note box.',
+    goals:[ { label:'(no goals recorded)', progress:0, note:'' } ],
+    timeline:[ { kind:'file-open', when:c.last === '—' ? 'Recently' : c.last+' ago', title:'File opened', body:'Client added to system.' } ],
+    sessions:[],
+    documents:[],
+    checkins:[],
+    themes:[],
+    observations:[],
+    intentions:[],
+    billing:{ paid:c.ltv, out:'$0', avg:'—' },
+    invoices:[],
+    contactFull:[ ['Email','—'],['Phone','—'] ],
+    consents:[{ label:'Informed consent', status:'—', ok:false }],
+    intake:[['Intake status', c.flags.includes('intake') ? 'Not submitted' : 'On file']],
   };
-  const [cls, dot] = map[s] || ['bg-ink-100 text-ink-600','bg-ink-400'];
+  return Object.assign(base, over || {});
+}
+
+files.marcus = buildTemplate('marcus', {
+  pronouns:'he/him', age:'48y', opened:'Aug 2024',
+  contact:{ email:'marcus.devoe@proton.me', phone:'+1 415 555 0199', location:'San Francisco, CA · UTC-7' },
+  tags:[['BREATHWORK PRIMARY','bg-ink-900 text-white'],['ACTIVE','bg-green-50 text-green-700'],['$210 OVERDUE','bg-red-50 text-red-700']],
+  pinned:'Lost his father in late 2024 — still in active grief. Deep breathwork unlocks strong emotional release. Keep water nearby. Avoid bowl work — overstimulating.',
+  goals:[
+    { label:'Process grief', progress:35, note:'opening slowly' },
+    { label:'Sleep >6 hours', progress:60, note:'improving' },
+    { label:'Reduce alcohol at night', progress:20, note:'ongoing' },
+  ],
+  billing:{ paid:'$1,005', out:'$210', avg:'$135' },
+  invoices:[
+    { id:'INV-1042', session:'Breathwork pkg', issued:'Apr 07', due:'Apr 14', amount:'$210', status:'Overdue' },
+    { id:'INV-1036', session:'Breathwork · Apr 01', issued:'Apr 01', due:'Apr 08', amount:'$135', status:'Paid' },
+    { id:'INV-1028', session:'Breathwork · Mar 24', issued:'Mar 24', due:'Mar 31', amount:'$135', status:'Paid' },
+  ],
+  timeline:[
+    { kind:'invoice-overdue', when:'5d overdue', title:'INV-1042 unpaid · $210', body:'Reminder sent Apr 15. Consider a softer follow-up.' },
+    { kind:'session', when:'6d ago', title:'Breathwork · 60m (Apr 13)', body:'Big release mid-session. He mentioned his dad for the first time by name.' },
+    { kind:'note', when:'13d ago', title:'Observations', body:'Dreams about father have increased. He said "I\'m finally ready to talk about it."' },
+  ],
+  themes:['Grief','Sleep','Father','Alcohol','Release'],
+  observations:['Grief is starting to surface. Pace carefully.','Breathwork is the unlock modality for him.','Evenings are hardest — he drinks to quiet the mind.'],
+});
+
+files.noa = buildTemplate('noa', {
+  pronouns:'they/them', age:'29y', opened:'Nov 2024',
+  contact:{ email:'noa.bennett@fastmail.com', phone:'+1 503 555 0172', location:'Portland, OR · UTC-7' },
+  tags:[['SOUND PRIMARY','bg-green-100 text-green-700'],['ACTIVE','bg-green-50 text-green-700'],['INTAKE ✓','bg-green-50 text-green-700']],
+  pinned:'Chronic migraines. Responds exceptionally well to sound healing with bowls at mid-low frequency. Avoid high-pitched tones. Prefers morning sessions before work.',
+  goals:[
+    { label:'Migraine-free weeks', progress:70, note:'3 of last 4 weeks clear' },
+    { label:'Grounding practice daily', progress:55, note:'tracking in journal' },
+  ],
+  billing:{ paid:'$1,620', out:'$0', avg:'$135' },
+  invoices:[
+    { id:'INV-1044', session:'Sound · Apr 13', issued:'Apr 13', due:'Apr 20', amount:'$135', status:'Paid' },
+    { id:'INV-1033', session:'Sound · Apr 02', issued:'Apr 02', due:'Apr 09', amount:'$135', status:'Paid' },
+  ],
+  timeline:[
+    { kind:'session', when:'3d ago', title:'Sound healing · 60m (Apr 16)', body:'Reported 0 migraines in last 10 days. Asked about increasing cadence.' },
+    { kind:'note', when:'10d ago', title:'Cadence check', body:'Weekly rhythm seems to be the sweet spot. They raised cadence suggestion themselves.' },
+  ],
+  themes:['Migraines','Grounding','Sleep','Sound sensitivity'],
+  observations:['Migraines have reduced significantly since starting weekly sound work.','They do their own grounding practice between sessions — self-directed.'],
+});
+
+files.aanya = buildTemplate('aanya', {
+  pronouns:'she/her', age:'—', opened:'Today',
+  contact:{ email:'aanya.k@gmail.com', phone:'+1 646 555 0109', location:'—' },
+  tags:[['NEW','bg-amber-50 text-amber-700'],['INTAKE MISSING','bg-red-50 text-red-700']],
+  pinned:'Intake call scheduled for today 6:30 PM. Intake form not yet submitted — send reminder.',
+  timeline:[
+    { kind:'intake-pending', when:'in 4h 28m', title:'Intake call scheduled', body:'Send intake form reminder before the call.' },
+    { kind:'file-open', when:'Yesterday', title:'File opened', body:'Referred via website.' },
+  ],
+});
+
+// Global data (sessions, invoices)
+const sessionsGlobal = [
+  { when:'Today 14:00', client:'Elena Larsson',  modality:'Reiki',             dur:'60m', status:'Upcoming',  meet:'xyh-abcd-qrs', paid:'Paid'  },
+  { when:'Today 16:00', client:'Julián Morales', modality:'Sound healing',     dur:'90m', status:'Upcoming',  meet:'mnp-fghi-jkl', paid:'Paid'  },
+  { when:'Today 18:30', client:'Aanya Kapoor',   modality:'Intake call',       dur:'30m', status:'Intake',    meet:'abc-defg-hij', paid:'—'     },
+  { when:'Tue 10:00',   client:'Marcus Devoe',   modality:'Breathwork',        dur:'60m', status:'Upcoming',  meet:'qrs-tuvw-xyz', paid:'Unpaid'},
+  { when:'Tue 15:00',   client:'Jamie Rhodes',   modality:'Reiki',             dur:'60m', status:'Upcoming',  meet:'klm-nopq-rst', paid:'Paid'  },
+  { when:'Wed 09:00',   client:'Priya Shah',     modality:'Guided meditation', dur:'45m', status:'Upcoming',  meet:'uvw-xyza-bcd', paid:'Paid'  },
+];
+
+const invoicesGlobal = [
+  { id:'INV-1048', client:'Elena Larsson',  issued:'Apr 18', due:'Apr 25', amount:'$135', status:'Paid' },
+  { id:'INV-1047', client:'Julián Morales', issued:'Apr 17', due:'Apr 24', amount:'$180', status:'Paid' },
+  { id:'INV-1046', client:'Priya Shah',     issued:'Apr 16', due:'Apr 23', amount:'$105', status:'Outstanding' },
+  { id:'INV-1045', client:'Marcus Devoe',   issued:'Apr 14', due:'Apr 21', amount:'$270', status:'Paid' },
+  { id:'INV-1044', client:'Noa Bennett',    issued:'Apr 13', due:'Apr 20', amount:'$135', status:'Paid' },
+  { id:'INV-1043', client:'Jamie Rhodes',   issued:'Apr 10', due:'Apr 17', amount:'$135', status:'Outstanding' },
+  { id:'INV-1042', client:'Marcus Devoe',   issued:'Apr 07', due:'Apr 14', amount:'$210', status:'Overdue' },
+];
+
+const actionItems = [
+  { kind:'INTAKE',  cls:'bg-amber-50 text-amber-700',  dot:'bg-amber-500', text:'Aanya Kapoor hasn\'t submitted intake form — session in <span class="mono text-ink-900">4h 28m</span>', meta:'2025-04-19', action:'Send reminder', open:'aanya' },
+  { kind:'OVERDUE', cls:'bg-red-50 text-red-700',       dot:'bg-red-500',   text:'Invoice <span class="mono text-ink-900">INV-1042</span> to Marcus Devoe is 5 days overdue',             meta:'$210.00',    action:'Send reminder', open:'marcus' },
+  { kind:'NOTES',   cls:'bg-ink-100 text-ink-600',      dot:'bg-ink-400',   text:'Session notes pending for <span class="text-ink-900 font-medium">Noa Bennett</span> — Apr 16, 60m',     meta:'3d ago',     action:'Write notes',   open:'noa' },
+  { kind:'CONSENT', cls:'bg-ink-100 text-ink-600',      dot:'bg-ink-400',   text:'Priya Shah consent form expires in 7 days',                                                              meta:'exp 2025-04-26',action:'Renew',      open:'priya' },
+  { kind:'FOLLOWUP',cls:'bg-ink-100 text-ink-600',      dot:'bg-ink-400',   text:'Jamie Rhodes hasn\'t booked since Apr 8 (usual cadence: 10 days)',                                      meta:'11d',        action:'Reach out',     open:'jamie' },
+];
+
+// =============== HELPERS ===============
+const initials = (n) => n.split(' ').map(p => p[0]).slice(0,2).join('');
+const chip = (s) => {
+  const map = { Upcoming:['bg-ink-100 text-ink-700','bg-ink-500'], Completed:['bg-green-50 text-green-700','bg-green-500'], Cancelled:['bg-ink-100 text-ink-500','bg-ink-400'], Intake:['bg-amber-50 text-amber-700','bg-amber-500'], Paid:['bg-green-50 text-green-700','bg-green-500'], Outstanding:['bg-amber-50 text-amber-700','bg-amber-500'], Overdue:['bg-red-50 text-red-700','bg-red-500'], Unpaid:['bg-amber-50 text-amber-700','bg-amber-500'] };
+  const [cls,dot] = map[s] || ['bg-ink-100 text-ink-600','bg-ink-400'];
   if (s === '—') return '<span class="text-ink-300">—</span>';
   return `<span class="chip ${cls}"><span class="dot ${dot}"></span>${s.toUpperCase()}</span>`;
 };
 const typeChip = (t) => {
   const map = { Note:'bg-ink-100 text-ink-700', Intake:'bg-amber-50 text-amber-700', Recording:'bg-red-50 text-red-700', Consent:'bg-green-50 text-green-700' };
-  return `<span class="chip ${map[t]}">${t.toUpperCase()}</span>`;
+  return `<span class="chip ${map[t]||'bg-ink-100 text-ink-600'}">${t.toUpperCase()}</span>`;
+};
+const flagChip = (f) => {
+  const map = { 'overdue':['OVERDUE','bg-red-50 text-red-700'], 'intake':['NO INTAKE','bg-amber-50 text-amber-700'], 'consent-exp':['CONSENT EXP','bg-amber-50 text-amber-700'], 'dormant':['DORMANT','bg-ink-100 text-ink-500'] };
+  const [label, cls] = map[f] || [f.toUpperCase(),'bg-ink-100 text-ink-600'];
+  return `<span class="chip ${cls}">${label}</span>`;
+};
+const tlIcon = (kind) => {
+  const map = {
+    'session-upcoming':'bg-flame-100 text-flame-700 M12 4v16m8-8H4',
+    session:'bg-ink-100 text-ink-700 M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z',
+    note:'bg-ink-100 text-ink-700 M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586L19 9v10a2 2 0 01-2 2z',
+    upload:'bg-green-50 text-green-700 M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12',
+    'invoice-paid':'bg-green-50 text-green-700 M5 13l4 4L19 7',
+    'invoice-overdue':'bg-red-50 text-red-700 M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
+    'intake-pending':'bg-amber-50 text-amber-700 M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
+    'file-open':'bg-ink-100 text-ink-500 M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V7z',
+  };
+  const [cls, ...path] = (map[kind]||map.note).split(' ');
+  const pathJoined = (map[kind]||map.note).split(' ').slice(1).join(' ');
+  return `<div class="w-6 h-6 rounded-full ${(map[kind]||map.note).split(' ').slice(0,3).join(' ')} flex items-center justify-center shrink-0 z-10 relative"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="${(map[kind]||map.note).split(' ').slice(3).join(' ')}"/></svg></div>`;
 };
 
-// -------- Render --------
-document.getElementById('today-body').innerHTML = today.map(s => `
-  <tr class="row-hover">
-    <td class="px-4 py-2.5 mono text-xs text-ink-700 w-24">${s.time}</td>
-    <td class="px-4 py-2.5">
-      <div class="flex items-center gap-2">
-        <div class="w-6 h-6 rounded-sm ${avatar(s.client)} flex items-center justify-center text-[10px] font-semibold">${initials(s.client)}</div>
-        <span class="font-medium text-ink-900">${s.client}</span>
-        <span class="text-ink-400 text-xs">${s.modality} / ${s.dur}</span>
-      </div>
-    </td>
-    <td class="px-4 py-2.5">
-      ${s.status === 'next' ? '<span class="chip bg-flame-100 text-flame-700"><span class="dot bg-flame-500"></span>NEXT</span>' :
-        s.status === 'intake' ? '<span class="chip bg-amber-50 text-amber-700"><span class="dot bg-amber-500"></span>INTAKE</span>' :
-        '<span class="chip bg-ink-100 text-ink-600"><span class="dot bg-ink-400"></span>SCHEDULED</span>'}
-    </td>
-    <td class="px-4 py-2.5 text-right"><a href="#" class="mono text-xs text-ink-500 hover:text-ink-900">meet / ${s.meet} ↗</a></td>
-  </tr>
+// =============== RENDER ===============
+
+// Clients directory
+function renderClients(q = '') {
+  const list = clients.filter(c => c.name.toLowerCase().includes(q) || c.working.toLowerCase().includes(q));
+  document.getElementById('clients-body').innerHTML = list.map(c => `
+    <tr class="row-hover" data-open="${c.id}">
+      <td class="px-4 py-2.5">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-md ${c.avatar} flex items-center justify-center text-xs font-semibold">${initials(c.name)}</div>
+          <div>
+            <div class="font-medium text-ink-900 flex items-center gap-2">${c.name} <span class="mono text-[10px] text-ink-400">${c.code}</span></div>
+          </div>
+        </div>
+      </td>
+      <td class="px-4 py-2.5 text-ink-600 text-xs">${c.working}</td>
+      <td class="px-4 py-2.5 mono text-xs text-ink-900">${c.sessions}</td>
+      <td class="px-4 py-2.5 mono text-xs text-ink-600">${c.last}</td>
+      <td class="px-4 py-2.5 text-xs ${c.next==='—'?'text-ink-300':'text-flame-700'}">${c.next}</td>
+      <td class="px-4 py-2.5 mono text-xs text-ink-600">${c.cadence}</td>
+      <td class="px-4 py-2.5 mono text-xs text-ink-900">${c.ltv}</td>
+      <td class="px-4 py-2.5 mono text-xs text-ink-600">${c.docs}</td>
+      <td class="px-4 py-2.5">${c.flags.length ? c.flags.map(flagChip).join(' ') : '<span class="text-ink-300">—</span>'}</td>
+    </tr>
+  `).join('') || `<tr><td colspan="9" class="px-4 py-6 text-center text-ink-400 text-sm">No files match.</td></tr>`;
+  document.querySelectorAll('[data-open]').forEach(el => {
+    el.addEventListener('click', () => openFile(el.dataset.open));
+  });
+}
+renderClients();
+document.getElementById('client-search').addEventListener('input', e => renderClients(e.target.value.toLowerCase()));
+
+// Inbox action items
+document.getElementById('action-items').innerHTML = actionItems.map(a => `
+  <div class="row-hover flex items-center gap-3 px-4 py-2.5 text-sm" data-open="${a.open}">
+    <span class="chip ${a.cls}"><span class="dot ${a.dot}"></span>${a.kind}</span>
+    <span class="flex-1 text-ink-700">${a.text}</span>
+    <span class="mono text-xs text-ink-400">${a.meta}</span>
+    <button class="text-xs text-flame-700 hover:text-flame-600 font-medium">${a.action}</button>
+  </div>
 `).join('');
 
-document.getElementById('sessions-body').innerHTML = sessions.map(s => `
+// Calendar
+document.getElementById('calendar-body').innerHTML = sessionsGlobal.map(s => `
   <tr class="row-hover">
-    <td class="px-4 py-2"><input type="checkbox" class="accent-flame-600"/></td>
     <td class="px-4 py-2 mono text-xs text-ink-700">${s.when}</td>
-    <td class="px-4 py-2">
-      <div class="flex items-center gap-2">
-        <div class="w-5 h-5 rounded-sm ${avatar(s.client)} flex items-center justify-center text-[9px] font-semibold">${initials(s.client)}</div>
-        <span class="font-medium text-ink-900">${s.client}</span>
-      </div>
-    </td>
+    <td class="px-4 py-2 font-medium text-ink-900">${s.client}</td>
     <td class="px-4 py-2 text-ink-600">${s.modality}</td>
     <td class="px-4 py-2 mono text-xs text-ink-600">${s.dur}</td>
     <td class="px-4 py-2">${chip(s.status)}</td>
-    <td class="px-4 py-2 mono text-xs">${s.meet === '—' ? '<span class="text-ink-300">—</span>' : `<a href="#" class="text-ink-500 hover:text-ink-900">${s.meet} ↗</a>`}</td>
-    <td class="px-4 py-2 text-xs text-ink-500">${s.notes === '—' ? '<span class="text-ink-300">—</span>' : s.notes === 'pending' ? '<span class="text-amber-700">pending</span>' : s.notes}</td>
+    <td class="px-4 py-2 mono text-xs"><a class="text-ink-500 hover:text-ink-900" href="#">${s.meet} ↗</a></td>
     <td class="px-4 py-2">${chip(s.paid)}</td>
   </tr>
 `).join('');
 
-const renderClients = (q = '') => {
-  const list = clients.filter(c => c.name.toLowerCase().includes(q) || c.email.toLowerCase().includes(q));
-  document.getElementById('clients-body').innerHTML = list.map(c => `
-    <tr class="row-hover">
-      <td class="px-4 py-2">
-        <div class="flex items-center gap-2">
-          <div class="w-5 h-5 rounded-sm ${avatar(c.name)} flex items-center justify-center text-[9px] font-semibold">${initials(c.name)}</div>
-          <span class="font-medium text-ink-900">${c.name}</span>
-        </div>
-      </td>
-      <td class="px-4 py-2 mono text-xs text-ink-600">${c.email}</td>
-      <td class="px-4 py-2 mono text-xs text-ink-600">${c.phone}</td>
-      <td class="px-4 py-2 mono text-xs text-ink-900">${c.sessions}</td>
-      <td class="px-4 py-2 mono text-xs text-ink-600">${c.last}</td>
-      <td class="px-4 py-2 mono text-xs text-ink-600">${c.cadence}</td>
-      <td class="px-4 py-2 mono text-xs text-ink-900">${c.ltv}</td>
-      <td class="px-4 py-2 text-xs ${c.intake.includes('⚠') ? 'text-amber-700' : 'text-green-700'}">${c.intake}</td>
-      <td class="px-4 py-2 text-xs ${c.consent.includes('exp') ? 'text-amber-700' : c.consent === '—' ? 'text-ink-300' : 'text-green-700'}">${c.consent}</td>
-    </tr>
-  `).join('') || `<tr><td colspan="9" class="px-4 py-6 text-center text-ink-400 text-sm">No match.</td></tr>`;
-};
-renderClients();
-document.getElementById('client-search').addEventListener('input', e => renderClients(e.target.value.toLowerCase()));
-
-document.getElementById('filing-body').innerHTML = filings.map(f => `
-  <tr class="row-hover">
-    <td class="px-4 py-2"><input type="checkbox" class="accent-flame-600"/></td>
-    <td class="px-4 py-2">
-      <div class="flex items-center gap-2">
-        <svg class="w-3.5 h-3.5 text-ink-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586L19 9v10a2 2 0 01-2 2z"/></svg>
-        <span class="mono text-xs text-ink-900">${f.name}</span>
-        ${f.flag ? `<span class="chip bg-amber-50 text-amber-700">${f.flag.toUpperCase()}</span>` : ''}
-      </div>
-    </td>
-    <td class="px-4 py-2">${typeChip(f.type)}</td>
-    <td class="px-4 py-2 text-ink-700">${f.client}</td>
-    <td class="px-4 py-2 text-xs text-ink-500">${f.session}</td>
-    <td class="px-4 py-2 mono text-xs text-ink-500">${f.size}</td>
-    <td class="px-4 py-2 mono text-xs text-ink-500">${f.updated}</td>
-    <td class="px-4 py-2 text-right">
-      <button class="text-ink-400 hover:text-ink-900"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg></button>
-    </td>
-  </tr>
-`).join('');
-
-document.getElementById('invoices-body').innerHTML = invoices.map(i => `
+// Global invoices
+document.getElementById('global-invoices-body').innerHTML = invoicesGlobal.map(i => `
   <tr class="row-hover">
     <td class="px-4 py-2 mono text-xs font-medium text-ink-900">${i.id}</td>
-    <td class="px-4 py-2">
-      <div class="flex items-center gap-2">
-        <div class="w-5 h-5 rounded-sm ${avatar(i.client)} flex items-center justify-center text-[9px] font-semibold">${initials(i.client)}</div>
-        <span class="text-ink-700">${i.client}</span>
-      </div>
-    </td>
-    <td class="px-4 py-2 text-xs text-ink-500">${i.session}</td>
+    <td class="px-4 py-2 text-ink-700">${i.client}</td>
     <td class="px-4 py-2 mono text-xs text-ink-600">${i.issued}</td>
     <td class="px-4 py-2 mono text-xs text-ink-600">${i.due}</td>
     <td class="px-4 py-2 mono text-xs text-ink-900 font-medium">${i.amount}</td>
     <td class="px-4 py-2">${chip(i.status)}</td>
-    <td class="px-4 py-2 text-right"><button class="text-xs text-ink-500 hover:text-ink-900 mono">open ↗</button></td>
   </tr>
 `).join('');
 
-// -------- Tabs --------
-const crumbs = { inbox:['Inbox','Today'], sessions:['Sessions','All'], clients:['Clients','Directory'], filing:['Filing','All files'], billing:['Billing','Invoices'] };
-document.querySelectorAll('[data-tab]').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const t = btn.dataset.tab;
-    document.querySelectorAll('.nav-item').forEach(n => n.removeAttribute('aria-current'));
-    document.querySelector(`.nav-item[data-tab="${t}"]`)?.setAttribute('aria-current','true');
-    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-    document.getElementById('tab-'+t).classList.add('active');
+// =============== CLIENT FILE RENDER ===============
+
+function openFile(id) {
+  const f = files[id] || buildTemplate(id);
+  const c = clients.find(x => x.id === id);
+
+  // header
+  document.getElementById('file-tab-label').textContent = `${f.id} · ${f.name}`;
+  document.getElementById('file-name').textContent = f.name;
+  document.getElementById('file-pronouns').textContent = f.pronouns;
+  document.getElementById('file-age').textContent = f.age;
+  document.getElementById('file-id').textContent = `#${f.id} · opened ${f.opened}`;
+  document.getElementById('file-avatar').className = `w-20 h-20 rounded-md ${f.avatarCls} flex items-center justify-center text-2xl font-semibold shrink-0`;
+  document.getElementById('file-avatar').textContent = f.avatar;
+  document.getElementById('file-contact').innerHTML =
+    `<span>${f.contact.email}</span><span class="text-ink-300">·</span><span>${f.contact.phone}</span><span class="text-ink-300">·</span><span>${f.contact.location}</span>`;
+  document.getElementById('file-tags').innerHTML = (f.tags.length ? f.tags : [['NEW FILE','bg-ink-100 text-ink-600']]).map(t => `<span class="chip ${t[1]}">${t[0]}</span>`).join('');
+
+  // stats
+  document.getElementById('st-sessions').textContent = f.stats.sessions;
+  document.getElementById('st-ltv').textContent = f.stats.ltv;
+  document.getElementById('st-next').textContent = f.stats.next;
+  document.getElementById('st-cadence').textContent = f.stats.cadence;
+  document.getElementById('st-owed').textContent = f.stats.owed;
+  document.getElementById('st-docs').textContent = f.stats.docs;
+  document.getElementById('ct-sessions').textContent = f.stats.sessions;
+  document.getElementById('ct-docs').textContent = f.stats.docs;
+
+  // pinned + goals
+  document.getElementById('pinned-note').textContent = f.pinned;
+  document.getElementById('goals-body').innerHTML = f.goals.map(g => `
+    <div>
+      <div class="flex items-center justify-between text-sm"><span class="text-ink-800">${g.label}</span><span class="mono text-[11px] text-ink-500">${g.progress}%</span></div>
+      <div class="bar mt-1"><span style="width:${g.progress}%"></span></div>
+      <div class="text-[11px] text-ink-500 mt-1">${g.note}</div>
+    </div>
+  `).join('');
+
+  // timeline
+  document.getElementById('timeline-body').innerHTML = f.timeline.length ? f.timeline.map(t => `
+    <div class="timeline-item flex gap-3">
+      ${tlIcon(t.kind)}
+      <div class="flex-1 border border-ink-200 rounded-md p-3">
+        <div class="flex items-center justify-between">
+          <div class="font-medium text-ink-900 text-sm">${t.title}</div>
+          <div class="mono text-[11px] text-ink-400">${t.when}</div>
+        </div>
+        <div class="text-xs text-ink-600 mt-1 leading-relaxed">${t.body}</div>
+      </div>
+    </div>
+  `).join('') : `<div class="text-sm text-ink-400 italic">No activity yet. Schedule a first session to get started.</div>`;
+
+  // sessions
+  document.getElementById('sessions-feed').innerHTML = f.sessions.length ? f.sessions.map(s => `
+    <details class="border border-ink-200 rounded-md overflow-hidden" ${s.status === 'Upcoming' ? 'open' : ''}>
+      <summary class="flex items-center gap-3 px-4 py-3 cursor-pointer hover:bg-ink-50">
+        <svg class="caret w-3 h-3 text-ink-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        <span class="mono text-xs text-ink-700 w-20">${s.date}</span>
+        <span class="text-ink-600 text-sm flex-1">${s.modality} · ${s.dur}</span>
+        <span class="text-xs text-ink-500 italic truncate max-w-[40%]">${s.intention}</span>
+        ${chip(s.status)}
+      </summary>
+      <div class="border-t border-ink-100 px-4 py-4 bg-ink-50/40 text-sm space-y-3">
+        <div class="grid grid-cols-2 gap-4">
+          <div class="border border-ink-200 bg-white rounded p-3">
+            <div class="text-[10px] uppercase tracking-wider text-ink-500 mb-1">Pre-session</div>
+            ${s.pre.energy==='—' ? '<div class="text-xs text-ink-400">Not recorded yet</div>' :
+              `<div class="text-xs text-ink-700 space-y-0.5">
+                <div>Energy <span class="mono">${s.pre.energy}/10</span></div>
+                <div>Anxiety <span class="mono">${s.pre.anxiety}/10</span></div>
+                <div>Body <span class="text-ink-600">${s.pre.body}</span></div>
+              </div>`}
+          </div>
+          <div class="border border-ink-200 bg-white rounded p-3">
+            <div class="text-[10px] uppercase tracking-wider text-ink-500 mb-1">Post-session</div>
+            ${!s.post ? '<div class="text-xs text-ink-400">Will be recorded after session</div>' :
+              `<div class="text-xs text-ink-700 space-y-0.5">
+                <div>Energy <span class="mono">${s.post.energy}/10</span></div>
+                <div>Anxiety <span class="mono">${s.post.anxiety}/10</span></div>
+                <div>Body <span class="text-ink-600">${s.post.body}</span></div>
+              </div>`}
+          </div>
+        </div>
+        <div>
+          <div class="text-[10px] uppercase tracking-wider text-ink-500 mb-1">Practitioner notes</div>
+          <div class="text-ink-700 leading-relaxed bg-white border border-ink-200 rounded p-3">${s.notes}</div>
+        </div>
+      </div>
+    </details>
+  `).join('') : `<div class="text-sm text-ink-400 italic">No sessions yet.</div>`;
+
+  // documents
+  document.getElementById('docs-body').innerHTML = f.documents.length ? f.documents.map(d => `
+    <tr class="row-hover">
+      <td class="px-4 py-2">
+        <div class="flex items-center gap-2">
+          <svg class="w-3.5 h-3.5 text-ink-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586L19 9v10a2 2 0 01-2 2z"/></svg>
+          <span class="mono text-xs text-ink-900">${d.name}</span>
+        </div>
+      </td>
+      <td class="px-4 py-2">${typeChip(d.type)}</td>
+      <td class="px-4 py-2 text-xs text-ink-500">${d.session}</td>
+      <td class="px-4 py-2 mono text-xs text-ink-500">${d.size}</td>
+      <td class="px-4 py-2 mono text-xs text-ink-500">${d.updated}</td>
+      <td class="px-4 py-2 text-right"><button class="text-ink-400 hover:text-ink-900"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg></button></td>
+    </tr>
+  `).join('') : `<tr><td colspan="6" class="px-4 py-6 text-center text-ink-400 text-sm italic">No documents. Upload one above.</td></tr>`;
+
+  // wellness
+  document.getElementById('checkin-body').innerHTML = f.checkins.length ? f.checkins.map(c => `
+    <tr>
+      <td class="wellness-cell mono text-xs text-ink-700">${c.session}</td>
+      <td class="wellness-cell mono text-xs"><span class="text-ink-400">${c.energy[0]}</span> <span class="text-ink-400">→</span> <span class="text-green-700 font-medium">${c.energy[1]}</span></td>
+      <td class="wellness-cell mono text-xs"><span class="text-ink-400">${c.anxiety[0]}</span> <span class="text-ink-400">→</span> <span class="text-green-700 font-medium">${c.anxiety[1]}</span></td>
+      <td class="wellness-cell text-xs text-ink-600">${c.body}</td>
+    </tr>
+  `).join('') : `<tr><td colspan="4" class="text-xs text-ink-400 italic py-3">No check-ins yet.</td></tr>`;
+
+  document.getElementById('themes-body').innerHTML = f.themes.length ? f.themes.map(t => `<span class="chip bg-ink-100 text-ink-700">${t}</span>`).join('') : '<span class="text-xs text-ink-400 italic">No themes recorded.</span>';
+  document.getElementById('obs-body').innerHTML = f.observations.length ? f.observations.map(o => `<li>${o}</li>`).join('') : '<li class="list-none text-ink-400 italic">No observations yet.</li>';
+  document.getElementById('intentions-body').innerHTML = f.intentions.length ? f.intentions.map(i => `
+    <li class="flex gap-3 items-baseline">
+      <span class="mono text-xs text-ink-400 w-16 shrink-0">${i.when}</span>
+      <span class="text-ink-700 italic">${i.text}</span>
+    </li>
+  `).join('') : '<li class="text-xs text-ink-400 italic list-none">No intentions recorded.</li>';
+
+  // billing
+  document.getElementById('b-paid').textContent = f.billing.paid;
+  document.getElementById('b-out').textContent  = f.billing.out;
+  document.getElementById('b-avg').textContent  = f.billing.avg;
+  document.getElementById('client-invoices-body').innerHTML = f.invoices.length ? f.invoices.map(i => `
+    <tr class="row-hover">
+      <td class="px-4 py-2 mono text-xs font-medium text-ink-900">${i.id}</td>
+      <td class="px-4 py-2 text-xs text-ink-600">${i.session}</td>
+      <td class="px-4 py-2 mono text-xs text-ink-600">${i.issued}</td>
+      <td class="px-4 py-2 mono text-xs text-ink-600">${i.due}</td>
+      <td class="px-4 py-2 mono text-xs text-ink-900 font-medium">${i.amount}</td>
+      <td class="px-4 py-2">${chip(i.status)}</td>
+    </tr>
+  `).join('') : `<tr><td colspan="6" class="px-4 py-6 text-center text-ink-400 text-sm italic">No invoices yet.</td></tr>`;
+
+  // profile
+  document.getElementById('contact-body').innerHTML = f.contactFull.map(([k,v]) => `<dt class="text-ink-500 text-xs">${k}</dt><dd class="text-ink-800">${v}</dd>`).join('');
+  document.getElementById('consents-body').innerHTML = f.consents.map(c => `
+    <li class="flex items-center justify-between border-b border-ink-100 pb-2 last:border-0">
+      <span class="text-ink-800">${c.label}</span>
+      <span class="text-xs ${c.ok?'text-green-700':'text-amber-700'}">${c.status}</span>
+    </li>
+  `).join('');
+  document.getElementById('intake-body').innerHTML = f.intake.map(([k,v]) => `<dt class="text-ink-500 text-xs">${k}</dt><dd class="text-ink-800">${v}</dd>`).join('');
+
+  // switch to client file
+  switchTab('clientfile', `${f.name}`);
+  document.getElementById('breadcrumb').innerHTML = `<button onclick="switchTab('clients')" class="text-ink-500 hover:text-ink-900">Client files</button><span class="text-ink-300">/</span><span class="text-ink-700 font-medium">${f.name}</span>`;
+  switchSubtab('timeline');
+}
+
+// =============== NAV ===============
+const crumbs = { inbox:['Inbox','Today'], clients:['Client files','Directory'], calendar:['Calendar','This week'], billing:['Billing','Invoices'] };
+
+function switchTab(t) {
+  document.querySelectorAll('.nav-item').forEach(n => n.removeAttribute('aria-current'));
+  const nav = document.querySelector(`.nav-item[data-tab="${t==='clientfile'?'clients':t}"]`);
+  nav?.setAttribute('aria-current','true');
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('tab-'+t).classList.add('active');
+  if (crumbs[t]) {
     const [a,b] = crumbs[t];
     document.getElementById('breadcrumb').innerHTML = `<span class="text-ink-700 font-medium">${a}</span><span class="text-ink-300">/</span><span>${b}</span>`;
-  });
-});
+  }
+  document.querySelector('main').scrollTo?.({ top:0 });
+}
 
-// -------- Modals --------
+function switchSubtab(s) {
+  document.querySelectorAll('.subtab').forEach(n => n.removeAttribute('aria-current'));
+  document.querySelector(`.subtab[data-subtab="${s}"]`)?.setAttribute('aria-current','true');
+  document.querySelectorAll('.subtab-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('sub-'+s).classList.add('active');
+}
+
+document.querySelectorAll('[data-tab]').forEach(btn => btn.addEventListener('click', () => switchTab(btn.dataset.tab)));
+document.querySelectorAll('[data-subtab]').forEach(btn => btn.addEventListener('click', () => switchSubtab(btn.dataset.subtab)));
+document.querySelectorAll('[data-open]').forEach(el => el.addEventListener('click', (e) => { e.stopPropagation(); openFile(el.dataset.open); closeCmd(); }));
+
+// Modals
 function openModal(id){ const m=document.getElementById('modal-'+id); m.classList.remove('hidden'); m.classList.add('flex'); }
 function closeModal(id){ const m=document.getElementById('modal-'+id); m.classList.add('hidden'); m.classList.remove('flex'); }
 function openCmd(){ const m=document.getElementById('cmd'); m.classList.remove('hidden'); m.classList.add('flex'); }
 function closeCmd(){ const m=document.getElementById('cmd'); m.classList.add('hidden'); m.classList.remove('flex'); }
 
-// Shortcuts
 document.addEventListener('keydown', (e) => {
   if ((e.metaKey||e.ctrlKey) && e.key === 'k') { e.preventDefault(); openCmd(); }
-  if (e.key === 'Escape') { closeCmd(); closeModal('new'); }
-  if (e.key === 'c' && !e.metaKey && !e.ctrlKey && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') { openModal('new'); }
+  if (e.key === 'Escape') { closeCmd(); closeModal('new'); closeModal('new-client'); }
+  if (e.key === 'c' && !e.metaKey && !e.ctrlKey && !['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) { openModal('new'); }
 });
 </script>
 </body>
