@@ -64,7 +64,10 @@
     <div class="px-4 py-4 border-b border-ink-100 flex items-center justify-between">
       <div class="flex items-center gap-2">
         <div class="w-5 h-5 rounded-sm bg-ink-900 flex items-center justify-center"><div class="w-2 h-2 rounded-full bg-flame-500"></div></div>
-        <div class="text-sm font-semibold text-ink-900 tracking-tight">soul&nbsp;service</div>
+        <div>
+          <div class="text-sm font-semibold text-ink-900 tracking-tight leading-none">soul&nbsp;service</div>
+          <div class="text-[10px] text-ink-400 mt-0.5">readings for returning to love</div>
+        </div>
       </div>
     </div>
 
@@ -72,28 +75,28 @@
       <div class="px-4 pt-3 pb-1 text-[10px] font-medium uppercase tracking-wider text-ink-400">Workspace</div>
       <button data-tab="inbox"    class="nav-item w-full flex items-center gap-2.5 pl-4 pr-3 py-1.5 text-ink-600 hover:bg-ink-50">
         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7l9 6 9-6M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-        <span class="flex-1 text-left">Inbox</span><span class="mono text-[10px] text-ink-400">3</span>
+        <span class="flex-1 text-left">Today's thread</span><span class="mono text-[10px] text-ink-400">3</span>
       </button>
       <button data-tab="clients" aria-current="true" class="nav-item w-full flex items-center gap-2.5 pl-4 pr-3 py-1.5 text-ink-600 hover:bg-ink-50">
         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V7z"/></svg>
-        <span class="flex-1 text-left">Client files</span><span class="kbd">G C</span>
+        <span class="flex-1 text-left">Souls</span><span class="kbd">G C</span>
       </button>
       <button data-tab="calendar" class="nav-item w-full flex items-center gap-2.5 pl-4 pr-3 py-1.5 text-ink-600 hover:bg-ink-50">
         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-        <span class="flex-1 text-left">Calendar</span><span class="kbd">G S</span>
+        <span class="flex-1 text-left">Readings calendar</span><span class="kbd">G S</span>
       </button>
       <button data-tab="billing" class="nav-item w-full flex items-center gap-2.5 pl-4 pr-3 py-1.5 text-ink-600 hover:bg-ink-50">
         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-        <span class="flex-1 text-left">Billing</span><span class="kbd">G B</span>
+        <span class="flex-1 text-left">Exchange</span><span class="kbd">G B</span>
       </button>
 
-      <div class="px-4 pt-5 pb-1 text-[10px] font-medium uppercase tracking-wider text-ink-400">Filters</div>
-      <button class="w-full flex items-center gap-2.5 pl-4 pr-3 py-1.5 text-ink-600 hover:bg-ink-50"><span class="dot bg-flame-500"></span> Active clients</button>
-      <button class="w-full flex items-center gap-2.5 pl-4 pr-3 py-1.5 text-ink-600 hover:bg-ink-50"><span class="dot bg-amber-500"></span> Missing intake</button>
-      <button class="w-full flex items-center gap-2.5 pl-4 pr-3 py-1.5 text-ink-600 hover:bg-ink-50"><span class="dot bg-red-500"></span> Overdue balance</button>
-      <button class="w-full flex items-center gap-2.5 pl-4 pr-3 py-1.5 text-ink-600 hover:bg-ink-50"><span class="dot bg-ink-300"></span> Dormant 30d+</button>
+      <div class="px-4 pt-5 pb-1 text-[10px] font-medium uppercase tracking-wider text-ink-400">Who needs you</div>
+      <button class="w-full flex items-center gap-2.5 pl-4 pr-3 py-1.5 text-ink-600 hover:bg-ink-50"><span class="dot bg-flame-500"></span> Actively held</button>
+      <button class="w-full flex items-center gap-2.5 pl-4 pr-3 py-1.5 text-ink-600 hover:bg-ink-50"><span class="dot bg-amber-500"></span> Intake still open</button>
+      <button class="w-full flex items-center gap-2.5 pl-4 pr-3 py-1.5 text-ink-600 hover:bg-ink-50"><span class="dot bg-red-500"></span> Exchange unsettled</button>
+      <button class="w-full flex items-center gap-2.5 pl-4 pr-3 py-1.5 text-ink-600 hover:bg-ink-50"><span class="dot bg-ink-300"></span> Quiet for 30d+</button>
 
-      <div class="px-4 pt-5 pb-1 text-[10px] font-medium uppercase tracking-wider text-ink-400">Pinned files</div>
+      <div class="px-4 pt-5 pb-1 text-[10px] font-medium uppercase tracking-wider text-ink-400">Close to my heart</div>
       <button data-open="elena" class="pinned w-full flex items-center gap-2 pl-4 pr-3 py-1.5 text-ink-600 hover:bg-ink-50 text-left">
         <div class="w-5 h-5 rounded-sm bg-flame-100 text-flame-700 flex items-center justify-center text-[10px] font-semibold">EL</div>
         <span class="truncate">Elena Larsson</span>
@@ -111,8 +114,11 @@
     <div class="px-3 py-3 border-t border-ink-100 text-xs text-ink-500">
       <div class="flex items-center justify-between px-1">
         <div class="flex items-center gap-2">
-          <div class="w-5 h-5 rounded-sm bg-ink-200 flex items-center justify-center text-[10px] font-semibold text-ink-700">M</div>
-          <span class="truncate">Maya</span>
+          <div class="w-5 h-5 rounded-sm bg-flame-100 flex items-center justify-center text-[10px] font-semibold text-flame-700">M</div>
+          <div class="min-w-0">
+            <div class="truncate text-ink-700 leading-none">Maya</div>
+            <div class="text-[10px] text-ink-400 mt-0.5 leading-none">soul reader</div>
+          </div>
         </div>
         <span class="kbd">⌘ K</span>
       </div>
@@ -125,7 +131,7 @@
     <!-- Top bar -->
     <header class="border-b border-ink-100 px-6 h-11 flex items-center gap-3 text-sm">
       <div id="breadcrumb" class="flex items-center gap-2 text-ink-500">
-        <span class="text-ink-700 font-medium">Client files</span><span class="text-ink-300">/</span><span>Directory</span>
+        <span class="text-ink-700 font-medium">Souls</span><span class="text-ink-300">/</span><span>Everyone in my care</span>
       </div>
       <div class="flex-1"></div>
       <div class="flex items-center gap-1.5 text-ink-500 text-xs">
@@ -146,17 +152,18 @@
 
         <!-- INBOX -->
         <section id="tab-inbox" class="tab-panel">
-          <h1 class="text-xl font-semibold text-ink-900 tracking-tight mb-5">Inbox</h1>
+          <h1 class="text-xl font-semibold text-ink-900 tracking-tight mb-1">Today's thread</h1>
+          <p class="text-xs text-ink-500 mb-5">Three readings today. Three people being held. Here's what needs your attention before the next one.</p>
           <div class="border border-ink-200 rounded-md bg-ink-50/40 mb-5">
             <div class="flex items-center gap-3 px-4 py-3">
               <span class="chip bg-flame-100 text-flame-700">NEXT</span>
               <div class="flex-1 min-w-0">
                 <div class="flex items-center gap-2 text-sm">
                   <button data-open="elena" class="font-medium text-ink-900 hover:underline">Elena Larsson</button>
-                  <span class="text-ink-400">·</span><span class="text-ink-600">Reiki / 60m</span>
+                  <span class="text-ink-400">·</span><span class="text-ink-600">Soul reading / 60m</span>
                   <span class="text-ink-400">·</span><span class="mono text-ink-600">2:00 PM</span>
                 </div>
-                <div class="text-xs text-ink-500 mt-0.5">4th session · intake on file · last note references shoulder tension</div>
+                <div class="text-xs text-ink-500 mt-0.5">4th reading · heart is ready to call love in, not just release · bring the rose quartz</div>
               </div>
               <a href="#" class="bg-ink-900 hover:bg-ink-800 text-white text-xs font-medium px-3 py-1.5 rounded inline-flex items-center gap-1.5">
                 <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M21 6.5l-4 2.5v6l4 2.5v-11zM3 7a2 2 0 012-2h9a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7z"/></svg>
@@ -164,7 +171,7 @@
               </a>
             </div>
           </div>
-          <div class="mb-2 text-[11px] font-medium uppercase tracking-wider text-ink-400">Action items · 5</div>
+          <div class="mb-2 text-[11px] font-medium uppercase tracking-wider text-ink-400">What needs you · 5</div>
           <div class="border border-ink-200 rounded-md divide-y divide-ink-100 overflow-hidden" id="action-items"></div>
         </section>
 
@@ -172,8 +179,8 @@
         <section id="tab-clients" class="tab-panel active">
           <div class="flex items-end justify-between mb-5">
             <div>
-              <h1 class="text-xl font-semibold text-ink-900 tracking-tight">Client files</h1>
-              <p class="text-xs text-ink-500 mt-0.5">Click any row to open that person's full file — sessions, notes, documents, wellness tracking, billing. Try <button data-open="elena" class="text-flame-700 hover:underline font-medium">Elena Larsson</button> for the most fleshed-out example.</p>
+              <h1 class="text-xl font-semibold text-ink-900 tracking-tight">Souls in my care</h1>
+              <p class="text-xs text-ink-500 mt-0.5">Each person has a full file — readings, messages, intentions, where their love work is now. Open <button data-open="elena" class="text-flame-700 hover:underline font-medium">Elena's file</button> to see everything I'm holding for her.</p>
             </div>
             <div class="flex items-center gap-2">
               <div class="relative">
@@ -188,15 +195,15 @@
             <table class="w-full text-sm">
               <thead class="text-[10px] uppercase tracking-wider text-ink-500 bg-ink-50/60 border-b border-ink-100">
                 <tr>
-                  <th class="text-left font-medium px-4 py-2">Client</th>
-                  <th class="text-left font-medium px-4 py-2">Working on</th>
-                  <th class="text-left font-medium px-4 py-2">Sessions</th>
+                  <th class="text-left font-medium px-4 py-2">Soul</th>
+                  <th class="text-left font-medium px-4 py-2">The work they're in</th>
+                  <th class="text-left font-medium px-4 py-2">Readings</th>
                   <th class="text-left font-medium px-4 py-2">Last</th>
                   <th class="text-left font-medium px-4 py-2">Next</th>
-                  <th class="text-left font-medium px-4 py-2">Cadence</th>
-                  <th class="text-left font-medium px-4 py-2">LTV</th>
-                  <th class="text-left font-medium px-4 py-2">Docs</th>
-                  <th class="text-left font-medium px-4 py-2">Flags</th>
+                  <th class="text-left font-medium px-4 py-2">Rhythm</th>
+                  <th class="text-left font-medium px-4 py-2">Exchanged</th>
+                  <th class="text-left font-medium px-4 py-2">Files</th>
+                  <th class="text-left font-medium px-4 py-2">Needs care</th>
                 </tr>
               </thead>
               <tbody id="clients-body" class="divide-y divide-ink-100"></tbody>
@@ -244,38 +251,38 @@
               <div class="flex flex-col gap-2 shrink-0">
                 <button class="bg-ink-900 hover:bg-ink-800 text-white text-xs font-medium px-3 py-1.5 rounded flex items-center gap-1.5">
                   <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
-                  Schedule session
+                  Schedule reading
                 </button>
                 <button class="border border-ink-200 hover:bg-white text-xs font-medium text-ink-700 px-3 py-1.5 rounded flex items-center gap-1.5">
                   <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586L19 9v10a2 2 0 01-2 2z"/></svg>
-                  Add note
+                  Write reading log
                 </button>
                 <button class="border border-ink-200 hover:bg-white text-xs font-medium text-ink-700 px-3 py-1.5 rounded flex items-center gap-1.5">
                   <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/></svg>
-                  Upload doc
+                  Altar photo / doc
                 </button>
               </div>
             </div>
 
             <!-- Stat strip -->
             <div class="grid grid-cols-6 gap-0 border-t border-ink-200 bg-white">
-              <div class="px-4 py-3 border-r border-ink-100"><div class="text-[10px] uppercase tracking-wider text-ink-500">Sessions</div><div class="mt-0.5 text-lg font-semibold text-ink-900" id="st-sessions">4</div></div>
-              <div class="px-4 py-3 border-r border-ink-100"><div class="text-[10px] uppercase tracking-wider text-ink-500">LTV</div><div class="mt-0.5 text-lg font-semibold text-ink-900 mono" id="st-ltv">$540</div></div>
-              <div class="px-4 py-3 border-r border-ink-100"><div class="text-[10px] uppercase tracking-wider text-ink-500">Next</div><div class="mt-0.5 text-sm font-medium text-flame-700" id="st-next">Today · 2:00 PM</div></div>
-              <div class="px-4 py-3 border-r border-ink-100"><div class="text-[10px] uppercase tracking-wider text-ink-500">Cadence</div><div class="mt-0.5 text-sm text-ink-700 mono" id="st-cadence">every 7 days</div></div>
-              <div class="px-4 py-3 border-r border-ink-100"><div class="text-[10px] uppercase tracking-wider text-ink-500">Outstanding</div><div class="mt-0.5 text-sm text-ink-700 mono" id="st-owed">$0</div></div>
-              <div class="px-4 py-3"><div class="text-[10px] uppercase tracking-wider text-ink-500">Docs</div><div class="mt-0.5 text-lg font-semibold text-ink-900" id="st-docs">9</div></div>
+              <div class="px-4 py-3 border-r border-ink-100"><div class="text-[10px] uppercase tracking-wider text-ink-500">Readings held</div><div class="mt-0.5 text-lg font-semibold text-ink-900" id="st-sessions">4</div></div>
+              <div class="px-4 py-3 border-r border-ink-100"><div class="text-[10px] uppercase tracking-wider text-ink-500">Love exchanged</div><div class="mt-0.5 text-lg font-semibold text-ink-900 mono" id="st-ltv">$540</div></div>
+              <div class="px-4 py-3 border-r border-ink-100"><div class="text-[10px] uppercase tracking-wider text-ink-500">Next meeting</div><div class="mt-0.5 text-sm font-medium text-flame-700" id="st-next">Today · 2:00 PM</div></div>
+              <div class="px-4 py-3 border-r border-ink-100"><div class="text-[10px] uppercase tracking-wider text-ink-500">Rhythm</div><div class="mt-0.5 text-sm text-ink-700 mono" id="st-cadence">every 7 days</div></div>
+              <div class="px-4 py-3 border-r border-ink-100"><div class="text-[10px] uppercase tracking-wider text-ink-500">Open exchange</div><div class="mt-0.5 text-sm text-ink-700 mono" id="st-owed">$0</div></div>
+              <div class="px-4 py-3"><div class="text-[10px] uppercase tracking-wider text-ink-500">In her file</div><div class="mt-0.5 text-lg font-semibold text-ink-900" id="st-docs">9</div></div>
             </div>
           </div>
 
           <!-- Subtabs -->
           <div class="border-b border-ink-200 flex items-center gap-0 mb-5 -mt-1 text-sm">
             <button data-subtab="timeline"  aria-current="true" class="subtab border-b-2 border-transparent px-3 py-2 text-ink-500 hover:text-ink-800 font-medium">Timeline</button>
-            <button data-subtab="sessions"  class="subtab border-b-2 border-transparent px-3 py-2 text-ink-500 hover:text-ink-800 font-medium">Sessions <span class="mono text-xs text-ink-400" id="ct-sessions">4</span></button>
-            <button data-subtab="documents" class="subtab border-b-2 border-transparent px-3 py-2 text-ink-500 hover:text-ink-800 font-medium">Documents <span class="mono text-xs text-ink-400" id="ct-docs">9</span></button>
-            <button data-subtab="wellness"  class="subtab border-b-2 border-transparent px-3 py-2 text-ink-500 hover:text-ink-800 font-medium">Wellness</button>
-            <button data-subtab="billing"   class="subtab border-b-2 border-transparent px-3 py-2 text-ink-500 hover:text-ink-800 font-medium">Billing</button>
-            <button data-subtab="profile"   class="subtab border-b-2 border-transparent px-3 py-2 text-ink-500 hover:text-ink-800 font-medium">Profile &amp; intake</button>
+            <button data-subtab="sessions"  class="subtab border-b-2 border-transparent px-3 py-2 text-ink-500 hover:text-ink-800 font-medium">Readings <span class="mono text-xs text-ink-400" id="ct-sessions">4</span></button>
+            <button data-subtab="documents" class="subtab border-b-2 border-transparent px-3 py-2 text-ink-500 hover:text-ink-800 font-medium">Altar &amp; docs <span class="mono text-xs text-ink-400" id="ct-docs">9</span></button>
+            <button data-subtab="wellness"  class="subtab border-b-2 border-transparent px-3 py-2 text-ink-500 hover:text-ink-800 font-medium">Soul log</button>
+            <button data-subtab="billing"   class="subtab border-b-2 border-transparent px-3 py-2 text-ink-500 hover:text-ink-800 font-medium">Offerings &amp; exchange</button>
+            <button data-subtab="profile"   class="subtab border-b-2 border-transparent px-3 py-2 text-ink-500 hover:text-ink-800 font-medium">Soul intake</button>
           </div>
 
           <!-- TIMELINE -->
@@ -284,17 +291,17 @@
               <div class="col-span-2 space-y-4" id="timeline-body"></div>
               <aside class="space-y-4">
                 <div class="border border-ink-200 rounded-md p-4">
-                  <div class="text-[10px] uppercase tracking-wider text-ink-500 mb-2">Practitioner's pinned note</div>
-                  <div id="pinned-note" class="text-sm text-ink-700 leading-relaxed">Responds strongly to slower breathwork intros before Reiki. Shoulder tension tied to caregiving her mother. Sensitive to sound — keep volume low. Prefers 2pm slots (post-nap for her kid).</div>
-                  <div class="mt-2 text-[11px] text-ink-400 mono">last updated 2025-04-17</div>
+                  <div class="text-[10px] uppercase tracking-wider text-ink-500 mb-2">What I'm holding for her</div>
+                  <div id="pinned-note" class="text-sm text-ink-700 leading-relaxed italic"></div>
+                  <div class="mt-2 text-[11px] text-ink-400 mono">written in my own voice · last touched 2d ago</div>
                 </div>
                 <div class="border border-ink-200 rounded-md p-4">
-                  <div class="text-[10px] uppercase tracking-wider text-ink-500 mb-3">Goals</div>
+                  <div class="text-[10px] uppercase tracking-wider text-ink-500 mb-3">Where her love work is now</div>
                   <div id="goals-body" class="space-y-3"></div>
                 </div>
                 <div class="border border-ink-200 rounded-md p-4">
-                  <div class="text-[10px] uppercase tracking-wider text-ink-500 mb-2">Emergency contact</div>
-                  <div class="text-sm text-ink-800">Anders Larsson (husband)</div>
+                  <div class="text-[10px] uppercase tracking-wider text-ink-500 mb-2">If anything ever happens</div>
+                  <div class="text-sm text-ink-800">Anders Larsson (partner)</div>
                   <div class="text-xs text-ink-500 mono mt-0.5">+46 70 555 2099</div>
                 </div>
               </aside>
@@ -334,22 +341,22 @@
           <div id="sub-wellness" class="subtab-panel">
             <div class="grid grid-cols-2 gap-5">
               <div class="border border-ink-200 rounded-md p-5">
-                <div class="text-[10px] uppercase tracking-wider text-ink-500 mb-3">Pre / post-session check-in</div>
+                <div class="text-[10px] uppercase tracking-wider text-ink-500 mb-3">Heart-opening map · pre / post</div>
                 <table class="w-full text-sm">
                   <thead class="text-[10px] uppercase tracking-wider text-ink-400 border-b border-ink-100">
-                    <tr><th class="text-left font-medium py-2">Session</th><th class="text-left font-medium">Energy</th><th class="text-left font-medium">Anxiety</th><th class="text-left font-medium">Body</th></tr>
+                    <tr><th class="text-left font-medium py-2">Reading</th><th class="text-left font-medium">Heart open</th><th class="text-left font-medium">Self-love</th><th class="text-left font-medium">Felt in body</th></tr>
                   </thead>
                   <tbody id="checkin-body" class="divide-y divide-ink-100"></tbody>
                 </table>
               </div>
               <div class="border border-ink-200 rounded-md p-5">
-                <div class="text-[10px] uppercase tracking-wider text-ink-500 mb-3">Themes</div>
+                <div class="text-[10px] uppercase tracking-wider text-ink-500 mb-3">Love patterns showing up</div>
                 <div id="themes-body" class="flex flex-wrap gap-2"></div>
-                <div class="mt-5 text-[10px] uppercase tracking-wider text-ink-500 mb-2">Running observations</div>
+                <div class="mt-5 text-[10px] uppercase tracking-wider text-ink-500 mb-2">What I keep receiving for her</div>
                 <ul id="obs-body" class="text-sm text-ink-700 space-y-2 list-disc pl-4"></ul>
               </div>
               <div class="col-span-2 border border-ink-200 rounded-md p-5">
-                <div class="text-[10px] uppercase tracking-wider text-ink-500 mb-3">Intentions stated (chronological)</div>
+                <div class="text-[10px] uppercase tracking-wider text-ink-500 mb-3">Intentions she has set (in her own words)</div>
                 <ol id="intentions-body" class="text-sm space-y-3"></ol>
               </div>
             </div>
@@ -432,8 +439,8 @@
     </div>
 
     <footer class="border-t border-ink-100 px-6 h-7 flex items-center gap-4 text-[11px] text-ink-500">
-      <div class="flex items-center gap-1.5"><span class="dot bg-green-500"></span><span>All systems go</span></div>
-      <div>v0.2.0-prototype</div>
+      <div class="flex items-center gap-1.5"><span class="dot bg-green-500"></span><span>Held with care</span></div>
+      <div>for Maya · v0.3</div>
       <div class="flex-1"></div>
       <div>Last backup <span class="mono text-ink-700">2025-04-19 13:12</span></div>
       <div><span class="kbd">?</span> shortcuts</div>
@@ -454,7 +461,7 @@
     <div class="p-5 space-y-3 text-sm">
       <div class="grid grid-cols-[90px_1fr] items-center gap-3"><label class="text-xs text-ink-500">Client</label><select class="px-2 py-1.5 border border-ink-200 rounded text-sm"><option>Elena Larsson</option><option>Julián Morales</option><option>Aanya Kapoor</option><option>+ New…</option></select></div>
       <div class="grid grid-cols-[90px_1fr] items-center gap-3"><label class="text-xs text-ink-500">Date / time</label><div class="grid grid-cols-2 gap-2"><input type="date" class="px-2 py-1.5 border border-ink-200 rounded text-sm"/><input type="time" class="px-2 py-1.5 border border-ink-200 rounded text-sm"/></div></div>
-      <div class="grid grid-cols-[90px_1fr] items-center gap-3"><label class="text-xs text-ink-500">Modality</label><select class="px-2 py-1.5 border border-ink-200 rounded text-sm"><option>Reiki</option><option>Sound healing</option><option>Breathwork</option><option>Guided meditation</option></select></div>
+      <div class="grid grid-cols-[90px_1fr] items-center gap-3"><label class="text-xs text-ink-500">Reading type</label><select class="px-2 py-1.5 border border-ink-200 rounded text-sm"><option>Soul reading</option><option>Heart clearing</option><option>Ancestral reading</option><option>Love alignment</option><option>Inner child session</option><option>Forgiveness ritual</option><option>First reading + intake</option></select></div>
       <div class="flex items-center gap-2 pt-1 text-xs text-ink-500"><input type="checkbox" checked class="accent-flame-600"/><span>Auto-generate Google Meet link &amp; send calendar invite</span></div>
     </div>
     <div class="flex items-center justify-between px-5 py-3 border-t border-ink-100 bg-ink-50/40">
@@ -524,17 +531,17 @@
 <script>
 // =============== DATA ===============
 
-// Client directory records (shown on Clients tab)
+// Client directory — each one is someone Maya is helping return to love
 const clients = [
-  { id:'elena',  code:'EL-001', name:'Elena Larsson',  avatar:'bg-flame-100 text-flame-700', working:'Shoulder tension · caregiver burnout', sessions:4,  last:'2d',   next:'Today 2pm', cadence:'7d',  ltv:'$540',  docs:9, flags:[] },
-  { id:'marcus', code:'MD-008', name:'Marcus Devoe',   avatar:'bg-ink-100 text-ink-700',     working:'Sleep · anxiety · grief (father, 2024)',sessions:9,  last:'6d',   next:'Tue 10am', cadence:'10d', ltv:'$1,215',docs:14,flags:['overdue'] },
-  { id:'noa',    code:'NB-003', name:'Noa Bennett',    avatar:'bg-green-100 text-green-700', working:'Grounding · chronic migraine',          sessions:12, last:'3d',   next:'Fri 11am', cadence:'5d',  ltv:'$1,620',docs:22,flags:[] },
-  { id:'julian', code:'JM-011', name:'Julián Morales', avatar:'bg-blue-100 text-blue-700',   working:'Breath restriction · career pivot',     sessions:2,  last:'Today',next:'Apr 29',   cadence:'14d', ltv:'$270',  docs:5, flags:[] },
-  { id:'priya',  code:'PS-005', name:'Priya Shah',     avatar:'bg-purple-100 text-purple-700',working:'Meditation consistency · new-mom',     sessions:3,  last:'4d',   next:'Wed 9am',  cadence:'14d', ltv:'$405',  docs:7, flags:['consent-exp'] },
-  { id:'jamie',  code:'JR-002', name:'Jamie Rhodes',   avatar:'bg-ink-100 text-ink-700',     working:'Relationship grief',                    sessions:6,  last:'11d',  next:'Tue 3pm',  cadence:'10d', ltv:'$810',  docs:11,flags:['dormant'] },
-  { id:'aanya',  code:'AK-013', name:'Aanya Kapoor',   avatar:'bg-amber-100 text-amber-700', working:'New client · intake pending',           sessions:0,  last:'—',    next:'Today 6:30pm',cadence:'—',ltv:'$0',    docs:0, flags:['intake'] },
-  { id:'devon',  code:'DL-006', name:'Devon Lee',      avatar:'bg-ink-100 text-ink-700',     working:'Burnout recovery · dormant',            sessions:1,  last:'32d',  next:'—',        cadence:'—',   ltv:'$135',  docs:3, flags:['dormant'] },
-  { id:'sofia',  code:'SO-009', name:'Sofia Ortega',   avatar:'bg-green-100 text-green-700', working:'Voice/throat · public speaking',        sessions:5,  last:'9d',   next:'Apr 24',   cadence:'12d', ltv:'$675',  docs:10,flags:[] },
+  { id:'elena',  code:'EL-001', name:'Elena Larsson',  avatar:'bg-flame-100 text-flame-700', working:'Heart closure after 2023 breakup · reclaiming self-worth', sessions:4,  last:'2d',   next:'Today 2pm',   cadence:'7d',  ltv:'$540',  docs:9, flags:[] },
+  { id:'marcus', code:'MD-008', name:'Marcus Devoe',   avatar:'bg-ink-100 text-ink-700',     working:'Grief-closed heart · learning to receive love again',        sessions:9,  last:'6d',   next:'Tue 10am',    cadence:'10d', ltv:'$1,215',docs:14,flags:['overdue'] },
+  { id:'noa',    code:'NB-003', name:'Noa Bennett',    avatar:'bg-green-100 text-green-700', working:'Trusting soft love · ending the chaos pattern',              sessions:12, last:'3d',   next:'Fri 11am',    cadence:'5d',  ltv:'$1,620',docs:22,flags:[] },
+  { id:'julian', code:'JM-011', name:'Julián Morales', avatar:'bg-blue-100 text-blue-700',   working:'Leaving a marriage · returning to his own heart',            sessions:2,  last:'Today',next:'Apr 29',      cadence:'14d', ltv:'$270',  docs:5, flags:[] },
+  { id:'priya',  code:'PS-005', name:'Priya Shah',     avatar:'bg-purple-100 text-purple-700',working:'New mother · reconnecting to the love with her partner',    sessions:3,  last:'4d',   next:'Wed 9am',     cadence:'14d', ltv:'$405',  docs:7, flags:['consent-exp'] },
+  { id:'jamie',  code:'JR-002', name:'Jamie Rhodes',   avatar:'bg-ink-100 text-ink-700',     working:'Friendship betrayal · rebuilding trust in love',             sessions:6,  last:'11d',  next:'Tue 3pm',     cadence:'10d', ltv:'$810',  docs:11,flags:['dormant'] },
+  { id:'aanya',  code:'AK-013', name:'Aanya Kapoor',   avatar:'bg-amber-100 text-amber-700', working:'New soul · first intake reading tonight',                    sessions:0,  last:'—',    next:'Today 6:30pm',cadence:'—',   ltv:'$0',    docs:0, flags:['intake'] },
+  { id:'devon',  code:'DL-006', name:'Devon Lee',      avatar:'bg-ink-100 text-ink-700',     working:'Burnout closed her heart · dormant, needs gentle reach-out', sessions:1,  last:'32d',  next:'—',           cadence:'—',   ltv:'$135',  docs:3, flags:['dormant'] },
+  { id:'sofia',  code:'SO-009', name:'Sofia Ortega',   avatar:'bg-green-100 text-green-700', working:'Loud public life · quiet private heart · calling love in',   sessions:5,  last:'9d',   next:'Apr 24',      cadence:'12d', ltv:'$675',  docs:10,flags:[] },
 ];
 
 // Deep per-client file data. Elena is fully fleshed; others share a template with tweaks.
@@ -543,89 +550,92 @@ const files = {
     id:'EL-001', name:'Elena Larsson', avatar:'EL', avatarCls:'bg-flame-100 text-flame-700',
     pronouns:'she/her', age:'34y', opened:'Feb 2025',
     contact:{ email:'elena.larsson@gmail.com', phone:'+46 70 555 2134', location:'Malmö, Sweden · UTC+1' },
-    tags:[['REIKI PRIMARY','bg-flame-100 text-flame-700'],['ACTIVE','bg-green-50 text-green-700','dot-green'],['INTAKE ✓','bg-green-50 text-green-700'],['CONSENT ✓','bg-green-50 text-green-700'],['REFERRED BY DR. HALL','bg-ink-100 text-ink-600']],
+    tags:[['SOUL READING','bg-flame-100 text-flame-700'],['HEART OPENING','bg-green-50 text-green-700'],['INTAKE ✓','bg-green-50 text-green-700'],['CONSENT ✓','bg-green-50 text-green-700'],['FOUND ME ON INSTAGRAM','bg-ink-100 text-ink-600']],
     stats:{ sessions:4, ltv:'$540', next:'Today · 2:00 PM', cadence:'every 7 days', owed:'$0', docs:9 },
-    pinned:"Responds strongly to slower breathwork intros before Reiki. Shoulder tension tied to caregiving her mother. Sensitive to sound — keep volume low. Prefers 2pm slots (post-nap for her kid).",
+    pinned:"Heart is opening reading by reading. Ancestral grief from the maternal line keeps appearing — grandmother energy is warm and present (calls herself 'Mira'). She's ready to hear 'you are worthy of being cherished' without flinching now. Today: gently introduce the idea of *calling* love in, not just clearing what blocked it. She's almost ready to write the letter.",
     goals:[
-      { label:'Reduce shoulder tension', progress:55, note:'improving 3 of last 4 sessions' },
-      { label:'Sleep through the night',  progress:30, note:'intermittent · stress-driven' },
-      { label:'Boundaries w/ mother',     progress:40, note:'ongoing theme' },
+      { label:'Trust love again after Mark',         progress:55, note:'no longer flinches at the word "partner"' },
+      { label:'Forgive herself for staying too long',progress:40, note:'softened in last reading' },
+      { label:'Daily self-love practice',            progress:65, note:'mirror practice 5 of 7 mornings' },
+      { label:'Release the cord with Mark',          progress:30, note:'cord-cutting ritual scheduled in 2wks' },
     ],
     timeline:[
-      { kind:'session-upcoming', when:'Today · 2:00 PM', title:'Reiki · 60m', body:'Scheduled. Meet link auto-sent. Last note flagged shoulder tension — plan to open with slower breath.' },
-      { kind:'note',             when:'2d ago',           title:'Session note · Apr 17', body:'Arrived tense (energy 3/10). Slower settling than usual — took 12 min. Worked right shoulder / neck. Post-session reported "warmer, looser." Recommended hydration + 10m walk.' },
-      { kind:'invoice-paid',     when:'2d ago',           title:'INV-1048 paid · $135', body:'Stripe · card on file.' },
-      { kind:'session',          when:'9d ago',           title:'Reiki · 60m (Apr 10)',  body:'3rd session. Opened with breath (5m). Noted caregiver fatigue narrative re: mother. Strong response around solar plexus.' },
-      { kind:'upload',           when:'12d ago',          title:'consent-v2-signed.pdf uploaded', body:'Renewed consent · valid until 2026-04-07.' },
-      { kind:'note',             when:'14d ago',          title:'Followup email drafted', body:'Checked in mid-week between sessions — responded positively, reported sleep had improved 2 of 3 nights.' },
-      { kind:'session',          when:'16d ago',          title:'Reiki · 60m (Apr 03)',  body:'2nd session. First session with full length (prior was 45m). Tears midway, welcomed.' },
-      { kind:'session',          when:'30d ago',          title:'Intake + Reiki · 45m (Mar 20)', body:'First session. Intake completed same day. Goal set: "feel less wound up at bedtime."' },
-      { kind:'upload',           when:'30d ago',          title:'intake-form.pdf uploaded', body:'Reviewed · all required fields complete.' },
-      { kind:'file-open',        when:'Feb 2025',         title:'File opened', body:'Referred by Dr. Hall (family physician).' },
+      { kind:'session-upcoming', when:'Today · 2:00 PM', title:'Soul reading · 60m', body:'Today\'s thread: calling love in, not just clearing the past. Bring the rose quartz. She mentioned in her email she\'s ready to "feel chosen" again.' },
+      { kind:'note',             when:'2d ago',           title:'Reading log · Apr 17',  body:'Heart chakra showed brighter than ever — first time I saw it as fully open on the right. Mira (grandmother) came through with the message "the women in your line have always loved hard. you can choose easier." She wept, in the good way.' },
+      { kind:'invoice-paid',     when:'2d ago',           title:'Exchange received · $135', body:'Stripe · she added a $20 tip with the note "thank you for seeing me."' },
+      { kind:'session',          when:'9d ago',           title:'Soul reading · 60m (Apr 10)', body:'Ancestral thread strong. Saw three generations of women holding grief in the chest. Mira was the first to put hers down. Suggested Elena light a candle for her on Sundays.' },
+      { kind:'upload',           when:'12d ago',          title:'altar-photo_apr-07.jpg uploaded', body:'Set up the altar with rose quartz, photo of her grandmother, and the letter she\'s drafting to her younger self. Sent it to her so she can recreate it at home.' },
+      { kind:'note',             when:'14d ago',          title:'Voice memo to Elena',    body:'Sent her a 4-min voice note mid-week — affirmed what came through about her worthiness. She replied: "I cried in the car. thank you."' },
+      { kind:'session',          when:'16d ago',          title:'Soul reading · 60m (Apr 03)', body:'First time the word "Mark" came up without bracing. Heart cracked open mid-reading. Mira showed up holding a baby — she said "this is the love that was always yours."' },
+      { kind:'session',          when:'30d ago',          title:'Intake + soul reading · 45m (Mar 20)', body:'First reading. She came in protective. Heart chakra was very dim and gated. We just listened. Set the intention: "I am ready to feel love again, even if I\'m scared."' },
+      { kind:'upload',           when:'30d ago',          title:'soul-intake.pdf uploaded', body:'She wrote 4 paragraphs in the "what brings you here" field. The breakup with Mark in late 2023 was the door.' },
+      { kind:'file-open',        when:'Feb 2025',         title:'File opened', body:'Found me through the Instagram reel about ancestral love patterns. Sent a long DM. We scheduled within 2 days.' },
     ],
     sessions:[
-      { date:'Today', modality:'Reiki', dur:'60m', status:'Upcoming', intention:'Soften shoulders · quiet the inner critic', pre:{energy:'—',anxiety:'—',body:'—'}, post:null, notes:'(will add after session)' },
-      { date:'Apr 17', modality:'Reiki', dur:'60m', status:'Completed', intention:'Unwind the week', pre:{energy:3,anxiety:7,body:'tight r-shoulder'}, post:{energy:7,anxiety:4,body:'warmer, looser'}, notes:'Arrived tense. Slower settling than usual — took 12 min. Worked right shoulder and neck at length. Breath anchoring at sternum. Post reported "warmer, looser." Recommended hydration and a short walk.' },
-      { date:'Apr 10', modality:'Reiki', dur:'60m', status:'Completed', intention:'Feel supported',      pre:{energy:5,anxiety:6,body:'low back tight'}, post:{energy:8,anxiety:3,body:'open in hips'}, notes:'Breath-led opening (5m). Caregiver fatigue came up re: her mother. Strong response around solar plexus — held space without intervention.' },
-      { date:'Apr 03', modality:'Reiki', dur:'60m', status:'Completed', intention:'Be present to whatever comes', pre:{energy:4,anxiety:8,body:'clenched jaw'}, post:{energy:7,anxiety:4,body:'jaw released'}, notes:'Tears midway, welcomed. First full-length session. Closed with a guided visualization (oak tree).' },
-      { date:'Mar 20', modality:'Intake + Reiki', dur:'45m', status:'Completed', intention:'"Feel less wound up at bedtime"', pre:{energy:3,anxiety:8,body:'tight chest'}, post:{energy:6,anxiety:5,body:'warmer'}, notes:'First session, abbreviated. Intake reviewed live. Goals set together.' },
+      { date:'Today', modality:'Soul reading', dur:'60m', status:'Upcoming', intention:'Be ready to call love in, not just release the old', pre:{energy:'—',anxiety:'—',body:'—'}, post:null, notes:'(will record after the reading)' },
+      { date:'Apr 17', modality:'Soul reading', dur:'60m', status:'Completed', intention:'"Let me hear that I am worthy without flinching."', pre:{energy:5,anxiety:6,body:'tight chest'}, post:{energy:9,anxiety:2,body:'warm, open across collarbones'}, notes:'Heart chakra showed brighter than ever — first time fully open on the right. Mira came through with: "the women in your line have always loved hard. you can choose easier." She wept, in the release way. We sat in silence for 8 minutes after. She said "I felt held." Suggested she write a letter to her grandmother before next reading.' },
+      { date:'Apr 10', modality:'Soul reading', dur:'60m', status:'Completed', intention:'"Help me understand the pattern with my mother."', pre:{energy:6,anxiety:5,body:'shoulders up to ears'}, post:{energy:8,anxiety:3,body:'shoulders down, jaw soft'}, notes:'Ancestral thread strong. Saw three generations of women holding grief in the chest cavity — great-grandmother first, then grandmother (Mira), then her mother. Mira was the first one to put hers down. Suggested Elena light a candle for Mira on Sundays. She agreed and committed to it.' },
+      { date:'Apr 03', modality:'Soul reading', dur:'60m', status:'Completed', intention:'"Be present to whatever comes."', pre:{energy:4,anxiety:8,body:'clenched everything'}, post:{energy:7,anxiety:4,body:'tears released, throat softer'}, notes:'First time she said "Mark" without her body bracing. Heart cracked open mid-reading. Mira appeared holding a baby — said "this is the love that was always yours." Elena understood it as referring to her own younger self. Powerful. We didn\'t need to say much.' },
+      { date:'Mar 20', modality:'Intake + soul reading', dur:'45m', status:'Completed', intention:'"I am ready to feel love again, even if I\'m scared."', pre:{energy:3,anxiety:9,body:'gated chest, shallow breath'}, post:{energy:6,anxiety:6,body:'breath dropped to belly'}, notes:'First reading. She came in protective and apologetic ("sorry, I don\'t know how this works"). I told her she didn\'t have to know. Heart chakra was very dim and gated. We mostly just listened. Set our shared intention together at the end.' },
     ],
     documents:[
-      { name:'2025-04-17_elena-larsson_session-notes.md', type:'Note',      session:'Reiki 60m · Apr 17', size:'3 KB',   updated:'2d' },
-      { name:'2025-04-10_elena-larsson_session-notes.md', type:'Note',      session:'Reiki 60m · Apr 10', size:'4 KB',   updated:'9d' },
-      { name:'2025-04-03_elena-larsson_session-notes.md', type:'Note',      session:'Reiki 60m · Apr 03', size:'3 KB',   updated:'16d' },
-      { name:'consent-v2-signed.pdf',                     type:'Consent',   session:'—',                  size:'118 KB', updated:'12d' },
-      { name:'intake-form.pdf',                           type:'Intake',    session:'Mar 20',             size:'284 KB', updated:'30d' },
-      { name:'referral-letter_dr-hall.pdf',               type:'Note',      session:'—',                  size:'62 KB',  updated:'Feb' },
-      { name:'2025-04-10_session-recording.mp4',          type:'Recording', session:'Reiki 60m · Apr 10', size:'412 MB', updated:'9d' },
-      { name:'goal-sheet.md',                             type:'Note',      session:'—',                  size:'2 KB',   updated:'16d' },
-      { name:'followup-email_apr-13.md',                  type:'Note',      session:'—',                  size:'1 KB',   updated:'14d' },
+      { name:'2025-04-17_elena_reading-log.md',     type:'Note',      session:'Apr 17 reading',  size:'4 KB',   updated:'2d' },
+      { name:'2025-04-17_altar-photo.jpg',          type:'Recording', session:'Apr 17 reading',  size:'2.1 MB', updated:'2d' },
+      { name:'2025-04-10_reading-log.md',           type:'Note',      session:'Apr 10 reading',  size:'5 KB',   updated:'9d' },
+      { name:'voice-memo_apr-15.m4a',               type:'Recording', session:'between sessions',size:'1.8 MB', updated:'14d' },
+      { name:'altar-photo_apr-07.jpg',              type:'Recording', session:'Apr 03 reading',  size:'2.4 MB', updated:'12d' },
+      { name:'2025-04-03_reading-log.md',           type:'Note',      session:'Apr 03 reading',  size:'4 KB',   updated:'16d' },
+      { name:'soul-intake.pdf',                     type:'Intake',    session:'Mar 20 reading',  size:'296 KB', updated:'30d' },
+      { name:'consent-recording-and-care.pdf',      type:'Consent',   session:'—',               size:'118 KB', updated:'30d' },
+      { name:'her-letter-to-younger-self.md',       type:'Note',      session:'—',               size:'2 KB',   updated:'12d' },
     ],
     checkins:[
-      { session:'Apr 17', energy:[3,7], anxiety:[7,4], body:'tight shoulder → looser' },
-      { session:'Apr 10', energy:[5,8], anxiety:[6,3], body:'low back → open hips' },
-      { session:'Apr 03', energy:[4,7], anxiety:[8,4], body:'clenched jaw → released' },
-      { session:'Mar 20', energy:[3,6], anxiety:[8,5], body:'tight chest → warmer' },
+      { session:'Apr 17', energy:[5,9], anxiety:[6,2], body:'tight chest → warm across collarbones' },
+      { session:'Apr 10', energy:[6,8], anxiety:[5,3], body:'shoulders up → shoulders down, jaw soft' },
+      { session:'Apr 03', energy:[4,7], anxiety:[8,4], body:'clenched → tears, softer throat' },
+      { session:'Mar 20', energy:[3,6], anxiety:[9,6], body:'gated chest → breath dropped to belly' },
     ],
-    themes:['Caregiver fatigue','Shoulder tension','Sleep','Mother relationship','Boundaries','Sensitivity to sound'],
+    themes:['Self-worth','Ancestral grief (maternal)','Letting love in','Mira (grandmother)','Forgiving Mark','Forgiving herself','Heart chakra opening','Cord-cutting'],
     observations:[
-      'Consistently arrives with high anxiety (7–8); leaves at 3–5. Pattern holds across all sessions.',
-      'Tears at the second session were a release point — rapport deepened after.',
-      'Physical tension tracks with visits to her mother (noted in 3 of 4 sessions).',
-      'Responds to slow, quiet settings. Louder sound (bowls above 40%) shortens her exhale.',
+      'Heart chakra has visibly brightened across all four readings — most marked change between Apr 03 and Apr 10.',
+      'Mira (grandmother) is the consistent guide presence. Maternal lineage is the door for her healing.',
+      '"Worthy" is the word that lands. She no longer flinches when she hears it — that\'s new.',
+      'Ancestral grief sits at the chest, not the throat. Suggest gentle chest-opening practice between readings.',
+      'She processes BIG between sessions. Voice memos land harder than emails for her.',
+      'She\'s ready for the "calling love in" phase. We\'ve cleared enough.',
     ],
     intentions:[
-      { when:'Mar 20', text:'"Feel less wound up at bedtime."' },
+      { when:'Mar 20', text:'"I am ready to feel love again, even if I\'m scared."' },
       { when:'Apr 03', text:'"Be present to whatever comes."' },
-      { when:'Apr 10', text:'"Feel supported."' },
-      { when:'Apr 17', text:'"Unwind the week."' },
-      { when:'Today',  text:'"Soften shoulders · quiet the inner critic."' },
+      { when:'Apr 10', text:'"Help me understand the pattern with my mother."' },
+      { when:'Apr 17', text:'"Let me hear that I am worthy without flinching."' },
+      { when:'Today',  text:'"Be ready to call love in, not just release the old."' },
     ],
     billing:{ paid:'$540', out:'$0', avg:'$135' },
     invoices:[
-      { id:'INV-1048', session:'Reiki · Apr 18', issued:'Apr 18', due:'Apr 25', amount:'$135', status:'Paid' },
-      { id:'INV-1037', session:'Reiki · Apr 11', issued:'Apr 11', due:'Apr 18', amount:'$135', status:'Paid' },
-      { id:'INV-1029', session:'Reiki · Apr 04', issued:'Apr 04', due:'Apr 11', amount:'$135', status:'Paid' },
-      { id:'INV-1019', session:'Intake+Reiki · Mar 21', issued:'Mar 21', due:'Mar 28', amount:'$135', status:'Paid' },
+      { id:'INV-1048', session:'Soul reading · Apr 17', issued:'Apr 18', due:'Apr 25', amount:'$135', status:'Paid' },
+      { id:'INV-1037', session:'Soul reading · Apr 10', issued:'Apr 11', due:'Apr 18', amount:'$135', status:'Paid' },
+      { id:'INV-1029', session:'Soul reading · Apr 03', issued:'Apr 04', due:'Apr 11', amount:'$135', status:'Paid' },
+      { id:'INV-1019', session:'Intake + reading · Mar 20', issued:'Mar 21', due:'Mar 28', amount:'$135', status:'Paid' },
     ],
-    contactFull:[ ['Email','elena.larsson@gmail.com'],['Phone','+46 70 555 2134'],['Address','Kristianstadsgatan 8, Malmö'],['DOB','1991-08-14'],['Emergency','Anders Larsson (husband) · +46 70 555 2099'],['Pref. time','Weekday afternoons (post-nap for kid)'],['Timezone','UTC+1'] ],
+    contactFull:[ ['Email','elena.larsson@gmail.com'],['Phone','+46 70 555 2134'],['City','Malmö, Sweden'],['DOB','1991-08-14 (Leo sun)'],['Pref. contact','Voice memo > email > text'],['Best time','Weekday afternoons (her kid naps 1–3pm)'],['Timezone','UTC+1'] ],
     consents:[
-      { label:'Informed consent (v2)',   status:'Signed 2025-04-07', ok:true  },
-      { label:'Recording consent',        status:'Signed 2025-02-10', ok:true  },
-      { label:'Communication preferences',status:'Email + SMS',       ok:true  },
-      { label:'Cancellation policy',      status:'Acknowledged',      ok:true  },
+      { label:'Care &amp; recording consent', status:'Signed 2025-03-20', ok:true  },
+      { label:'Permission to channel guides', status:'Yes — welcomes it', ok:true  },
+      { label:'Permission to share voice memos between sessions', status:'Yes',     ok:true },
+      { label:'Cancellation rhythm',          status:'Acknowledged',      ok:true  },
     ],
     intake:[
-      ['Presenting concern','Shoulder / neck tension, poor sleep, caregiver fatigue'],
-      ['Prior healing work','Yoga (10y), brief CBT (2022), one massage therapist'],
-      ['Current medical','None. Vitamin D supplement. No contraindications.'],
-      ['Medications','None'],
-      ['Mental health history','Situational anxiety (mother\'s illness)'],
-      ['Trauma disclosure','Opted to share verbally if relevant'],
-      ['Spiritual/religious','Open · no specific tradition'],
-      ['How did you find me?','Referral from Dr. Hall'],
+      ['What brings you to me?','"My ex Mark left in late 2023 and I haven\'t felt like myself since. My heart feels closed and I\'m scared it\'ll stay that way. I want to believe I deserve love but I don\'t, not yet. I want to."'],
+      ['Where in your life is love feeling blocked?','Romantic. Also self — she said "I am unkind to myself in the mirror."'],
+      ['Who do you most need to forgive?','Herself first, then Mark, then her mother (in that order).'],
+      ['Earliest memory of feeling truly loved','Sitting on her grandmother Mira\'s lap during Sunday baking. She was 5.'],
+      ['What would "more love in your life" look like?','"Being chosen on purpose. By a partner, by myself, by my own life."'],
+      ['Open to channeled messages from guides?','Yes — curious and open. No tradition specifically.'],
+      ['Open to ancestral work?','Yes — drawn to it. Her grandmother passed in 2018 and she still feels her.'],
+      ['Anything I should know about your nervous system?','"I dissociate when overwhelmed. I\'ll go quiet — please give me a moment, don\'t rush in."'],
       ['Pronouns','she/her'],
-      ['Anything I should know?','Partner is supportive. Kid is 3 — naps 1–3pm.'],
+      ['How did you find me?','Instagram reel about ancestral love patterns'],
     ],
   },
 };
@@ -660,69 +670,83 @@ function buildTemplate(id, over) {
 files.marcus = buildTemplate('marcus', {
   pronouns:'he/him', age:'48y', opened:'Aug 2024',
   contact:{ email:'marcus.devoe@proton.me', phone:'+1 415 555 0199', location:'San Francisco, CA · UTC-7' },
-  tags:[['BREATHWORK PRIMARY','bg-ink-900 text-white'],['ACTIVE','bg-green-50 text-green-700'],['$210 OVERDUE','bg-red-50 text-red-700']],
-  pinned:'Lost his father in late 2024 — still in active grief. Deep breathwork unlocks strong emotional release. Keep water nearby. Avoid bowl work — overstimulating.',
+  tags:[['SOUL READING','bg-ink-900 text-white'],['GRIEF → LOVE','bg-green-50 text-green-700'],['$210 OUTSTANDING','bg-red-50 text-red-700']],
+  pinned:"Lost his father in late 2024. His heart closed the day his dad died — he said so out loud in our 3rd reading. Very slowly learning to let love back in, including from his wife who has been waiting patiently. Father is present in every reading. Don't rush him — he's the kind who will bolt if pushed.",
   goals:[
-    { label:'Process grief', progress:35, note:'opening slowly' },
-    { label:'Sleep >6 hours', progress:60, note:'improving' },
-    { label:'Reduce alcohol at night', progress:20, note:'ongoing' },
+    { label:'Let his wife in again',         progress:35, note:'held her hand during dinner last week. first time in months.' },
+    { label:'Forgive his father (and self)', progress:25, note:'not there yet — but the door is cracked' },
+    { label:'Believe he deserves softness',  progress:20, note:'stuck here · the core block' },
   ],
   billing:{ paid:'$1,005', out:'$210', avg:'$135' },
   invoices:[
-    { id:'INV-1042', session:'Breathwork pkg', issued:'Apr 07', due:'Apr 14', amount:'$210', status:'Overdue' },
-    { id:'INV-1036', session:'Breathwork · Apr 01', issued:'Apr 01', due:'Apr 08', amount:'$135', status:'Paid' },
-    { id:'INV-1028', session:'Breathwork · Mar 24', issued:'Mar 24', due:'Mar 31', amount:'$135', status:'Paid' },
+    { id:'INV-1042', session:'Soul reading · Apr 07', issued:'Apr 07', due:'Apr 14', amount:'$210', status:'Overdue' },
+    { id:'INV-1036', session:'Soul reading · Apr 01', issued:'Apr 01', due:'Apr 08', amount:'$135', status:'Paid' },
+    { id:'INV-1028', session:'Soul reading · Mar 24', issued:'Mar 24', due:'Mar 31', amount:'$135', status:'Paid' },
   ],
   timeline:[
-    { kind:'invoice-overdue', when:'5d overdue', title:'INV-1042 unpaid · $210', body:'Reminder sent Apr 15. Consider a softer follow-up.' },
-    { kind:'session', when:'6d ago', title:'Breathwork · 60m (Apr 13)', body:'Big release mid-session. He mentioned his dad for the first time by name.' },
-    { kind:'note', when:'13d ago', title:'Observations', body:'Dreams about father have increased. He said "I\'m finally ready to talk about it."' },
+    { kind:'invoice-overdue', when:'5d overdue', title:'Exchange unsettled · $210', body:"Don't send another reminder — the grief is the reason. Touch base with care next reading, not as a bill." },
+    { kind:'session', when:'6d ago', title:'Soul reading · 60m (Apr 13)', body:'Biggest breakthrough yet. He said his dad\'s name — "William" — for the first time without armoring. Dad came through with one line: "the way I loved you was the only way I knew." He wept.' },
+    { kind:'note', when:'13d ago', title:'Voice memo sent to Marcus', body:'Checked in midweek. He said his dreams of his father have increased and he\'s "finally ready to talk about it." Told him we\'d go as slow as he needed.' },
+    { kind:'file-open', when:'Aug 2024', title:'File opened', body:'His wife booked the first reading for him as a gift. He came reluctant.' },
   ],
-  themes:['Grief','Sleep','Father','Alcohol','Release'],
-  observations:['Grief is starting to surface. Pace carefully.','Breathwork is the unlock modality for him.','Evenings are hardest — he drinks to quiet the mind.'],
+  themes:['Grief','Father (William)','Receiving love','His wife (Anna)','Softness','Shame'],
+  observations:['Father presence is the gateway. Every reading he appears — we work through him.','He arms up the moment anything feels like "self-love." Use the word "softness" instead — it lands.','His wife is his most available doorway back to love. Reinforce this gently.','The overdue invoice is about shame, not money. Don\'t push it.'],
+  intentions:[
+    { when:'Mar 24', text:'"Just show up and see what happens."' },
+    { when:'Apr 01', text:'"Let me feel one good feeling."' },
+    { when:'Apr 07', text:'"Let my dad in if he wants to come."' },
+    { when:'Apr 13', text:'"I\'m ready to hear him."' },
+  ],
 });
 
 files.noa = buildTemplate('noa', {
   pronouns:'they/them', age:'29y', opened:'Nov 2024',
   contact:{ email:'noa.bennett@fastmail.com', phone:'+1 503 555 0172', location:'Portland, OR · UTC-7' },
-  tags:[['SOUND PRIMARY','bg-green-100 text-green-700'],['ACTIVE','bg-green-50 text-green-700'],['INTAKE ✓','bg-green-50 text-green-700']],
-  pinned:'Chronic migraines. Responds exceptionally well to sound healing with bowls at mid-low frequency. Avoid high-pitched tones. Prefers morning sessions before work.',
+  tags:[['SOUL READING','bg-green-100 text-green-700'],['PATTERN BREAKING','bg-green-50 text-green-700'],['INTAKE ✓','bg-green-50 text-green-700']],
+  pinned:"12 readings in. They\'ve been doing the deepest work of anyone I'm reading for right now. Their pattern was fierce, dramatic, addictive love — now they're learning what gentle love even feels like. Currently dating someone kind for the first time ever and describe it as 'boring in the best way.' Protect that sentence.",
   goals:[
-    { label:'Migraine-free weeks', progress:70, note:'3 of last 4 weeks clear' },
-    { label:'Grounding practice daily', progress:55, note:'tracking in journal' },
+    { label:'Trust the quiet love',              progress:75, note:'consistently showing up for dates without sabotaging' },
+    { label:'Stop the push-pull pattern',        progress:80, note:'zero episodes in last 6 weeks' },
+    { label:'Let self be seen without performing',progress:60, note:'big work · ongoing' },
   ],
   billing:{ paid:'$1,620', out:'$0', avg:'$135' },
   invoices:[
-    { id:'INV-1044', session:'Sound · Apr 13', issued:'Apr 13', due:'Apr 20', amount:'$135', status:'Paid' },
-    { id:'INV-1033', session:'Sound · Apr 02', issued:'Apr 02', due:'Apr 09', amount:'$135', status:'Paid' },
+    { id:'INV-1044', session:'Soul reading · Apr 13', issued:'Apr 13', due:'Apr 20', amount:'$135', status:'Paid' },
+    { id:'INV-1033', session:'Soul reading · Apr 02', issued:'Apr 02', due:'Apr 09', amount:'$135', status:'Paid' },
   ],
   timeline:[
-    { kind:'session', when:'3d ago', title:'Sound healing · 60m (Apr 16)', body:'Reported 0 migraines in last 10 days. Asked about increasing cadence.' },
-    { kind:'note', when:'10d ago', title:'Cadence check', body:'Weekly rhythm seems to be the sweet spot. They raised cadence suggestion themselves.' },
+    { kind:'session', when:'3d ago', title:'Soul reading · 60m (Apr 16)', body:'They described their new partner as "boring in the best way" and then cried because they realized they meant it. Big integration. We celebrated quietly.' },
+    { kind:'note', when:'10d ago', title:'Cadence check', body:'They asked about slowing to biweekly — not because they need less, but because they want to *live* the work between readings. Agreed. Good sign.' },
   ],
-  themes:['Migraines','Grounding','Sleep','Sound sensitivity'],
-  observations:['Migraines have reduced significantly since starting weekly sound work.','They do their own grounding practice between sessions — self-directed.'],
+  themes:['Gentle love','Ending the chaos pattern','Being chosen (not earned)','Self-worth','Receiving without earning'],
+  observations:['Their body has relaxed visibly across 12 readings — jaw, shoulders, hands.','The shift happened around reading 7 when they said out loud "I think I\'m addicted to being chased."','Gentle love feels unfamiliar → boring → safe → precious. They\'re in stage 3.'],
+  intentions:[
+    { when:'Apr 02', text:'"Help me stay in it when it\'s calm."' },
+    { when:'Apr 16', text:'"Let me trust that boring is good."' },
+  ],
 });
 
 files.aanya = buildTemplate('aanya', {
   pronouns:'she/her', age:'—', opened:'Today',
   contact:{ email:'aanya.k@gmail.com', phone:'+1 646 555 0109', location:'—' },
-  tags:[['NEW','bg-amber-50 text-amber-700'],['INTAKE MISSING','bg-red-50 text-red-700']],
-  pinned:'Intake call scheduled for today 6:30 PM. Intake form not yet submitted — send reminder.',
+  tags:[['NEW SOUL','bg-amber-50 text-amber-700'],['INTAKE NOT YET','bg-red-50 text-red-700']],
+  pinned:"First reading tonight at 6:30pm. She sent a short message: 'I don\'t know what\'s wrong but I feel love has left my life.' No intake form yet — send a gentle reminder, but don\'t pressure. If she can\'t fill it out, we\'ll do it live.",
   timeline:[
-    { kind:'intake-pending', when:'in 4h 28m', title:'Intake call scheduled', body:'Send intake form reminder before the call.' },
-    { kind:'file-open', when:'Yesterday', title:'File opened', body:'Referred via website.' },
+    { kind:'intake-pending', when:'in 4h 28m', title:'First reading scheduled · 6:30 PM', body:'Soul intake pending. Send a soft reminder — her message suggested she\'s already nervous. Lead with warmth, not logistics.' },
+    { kind:'file-open', when:'Yesterday', title:'File opened', body:'Came through the "Is your heart closed?" quiz on the website. Booked within 30 minutes.' },
   ],
+  intake:[ ['Intake status','Pending — first reading tonight'],['Initial message','"I don\'t know what\'s wrong but I feel love has left my life."'] ],
 });
 
 // Global data (sessions, invoices)
 const sessionsGlobal = [
-  { when:'Today 14:00', client:'Elena Larsson',  modality:'Reiki',             dur:'60m', status:'Upcoming',  meet:'xyh-abcd-qrs', paid:'Paid'  },
-  { when:'Today 16:00', client:'Julián Morales', modality:'Sound healing',     dur:'90m', status:'Upcoming',  meet:'mnp-fghi-jkl', paid:'Paid'  },
-  { when:'Today 18:30', client:'Aanya Kapoor',   modality:'Intake call',       dur:'30m', status:'Intake',    meet:'abc-defg-hij', paid:'—'     },
-  { when:'Tue 10:00',   client:'Marcus Devoe',   modality:'Breathwork',        dur:'60m', status:'Upcoming',  meet:'qrs-tuvw-xyz', paid:'Unpaid'},
-  { when:'Tue 15:00',   client:'Jamie Rhodes',   modality:'Reiki',             dur:'60m', status:'Upcoming',  meet:'klm-nopq-rst', paid:'Paid'  },
-  { when:'Wed 09:00',   client:'Priya Shah',     modality:'Guided meditation', dur:'45m', status:'Upcoming',  meet:'uvw-xyza-bcd', paid:'Paid'  },
+  { when:'Today 14:00', client:'Elena Larsson',  modality:'Soul reading',           dur:'60m', status:'Upcoming',  meet:'xyh-abcd-qrs', paid:'Paid'  },
+  { when:'Today 16:00', client:'Julián Morales', modality:'Heart clearing',         dur:'90m', status:'Upcoming',  meet:'mnp-fghi-jkl', paid:'Paid'  },
+  { when:'Today 18:30', client:'Aanya Kapoor',   modality:'First reading + intake', dur:'45m', status:'Intake',    meet:'abc-defg-hij', paid:'—'     },
+  { when:'Tue 10:00',   client:'Marcus Devoe',   modality:'Soul reading',           dur:'60m', status:'Upcoming',  meet:'qrs-tuvw-xyz', paid:'Unpaid'},
+  { when:'Tue 15:00',   client:'Jamie Rhodes',   modality:'Ancestral reading',      dur:'60m', status:'Upcoming',  meet:'klm-nopq-rst', paid:'Paid'  },
+  { when:'Wed 09:00',   client:'Priya Shah',     modality:'Love alignment',         dur:'45m', status:'Upcoming',  meet:'uvw-xyza-bcd', paid:'Paid'  },
+  { when:'Fri 11:00',   client:'Noa Bennett',    modality:'Soul reading',           dur:'60m', status:'Upcoming',  meet:'fgh-ijkl-mno', paid:'Paid'  },
 ];
 
 const invoicesGlobal = [
@@ -736,11 +760,11 @@ const invoicesGlobal = [
 ];
 
 const actionItems = [
-  { kind:'INTAKE',  cls:'bg-amber-50 text-amber-700',  dot:'bg-amber-500', text:'Aanya Kapoor hasn\'t submitted intake form — session in <span class="mono text-ink-900">4h 28m</span>', meta:'2025-04-19', action:'Send reminder', open:'aanya' },
-  { kind:'OVERDUE', cls:'bg-red-50 text-red-700',       dot:'bg-red-500',   text:'Invoice <span class="mono text-ink-900">INV-1042</span> to Marcus Devoe is 5 days overdue',             meta:'$210.00',    action:'Send reminder', open:'marcus' },
-  { kind:'NOTES',   cls:'bg-ink-100 text-ink-600',      dot:'bg-ink-400',   text:'Session notes pending for <span class="text-ink-900 font-medium">Noa Bennett</span> — Apr 16, 60m',     meta:'3d ago',     action:'Write notes',   open:'noa' },
-  { kind:'CONSENT', cls:'bg-ink-100 text-ink-600',      dot:'bg-ink-400',   text:'Priya Shah consent form expires in 7 days',                                                              meta:'exp 2025-04-26',action:'Renew',      open:'priya' },
-  { kind:'FOLLOWUP',cls:'bg-ink-100 text-ink-600',      dot:'bg-ink-400',   text:'Jamie Rhodes hasn\'t booked since Apr 8 (usual cadence: 10 days)',                                      meta:'11d',        action:'Reach out',     open:'jamie' },
+  { kind:'INTAKE',    cls:'bg-amber-50 text-amber-700',  dot:'bg-amber-500', text:'Aanya hasn\'t filled out her soul intake yet — first reading in <span class="mono text-ink-900">4h 28m</span>',                    meta:'gentle reminder', action:'Send voice memo', open:'aanya' },
+  { kind:'GRIEF HOLD',cls:'bg-red-50 text-red-700',      dot:'bg-red-500',   text:'Marcus\'s exchange of <span class="mono text-ink-900">$210</span> is still open — hold him gently, it\'s shame, not forgetting',    meta:'5d · with care',  action:'Touch in warmly', open:'marcus' },
+  { kind:'READING LOG', cls:'bg-ink-100 text-ink-600',   dot:'bg-ink-400',   text:'Reading log not written yet for <span class="text-ink-900 font-medium">Noa</span> — Apr 16 (they had the "boring love" breakthrough)',meta:'3d ago',          action:'Write it now',    open:'noa' },
+  { kind:'CONSENT',   cls:'bg-ink-100 text-ink-600',     dot:'bg-ink-400',   text:'Priya\'s recording consent expires in 7 days',                                                                                     meta:'exp 2025-04-26',  action:'Renew',           open:'priya' },
+  { kind:'MISSING',   cls:'bg-ink-100 text-ink-600',     dot:'bg-ink-400',   text:'Jamie hasn\'t booked since Apr 8 (her usual rhythm is 10 days) — the betrayal work is hard',                                       meta:'11d',             action:'Reach out softly',open:'jamie' },
 ];
 
 // =============== HELPERS ===============
@@ -1003,7 +1027,7 @@ function openFile(id) {
 }
 
 // =============== NAV ===============
-const crumbs = { inbox:['Inbox','Today'], clients:['Client files','Directory'], calendar:['Calendar','This week'], billing:['Billing','Invoices'] };
+const crumbs = { inbox:["Today's thread",'What needs you now'], clients:['Souls','Everyone in my care'], calendar:['Readings','This week'], billing:['Exchange','Open &amp; received'] };
 
 function switchTab(t) {
   document.querySelectorAll('.nav-item').forEach(n => n.removeAttribute('aria-current'));
